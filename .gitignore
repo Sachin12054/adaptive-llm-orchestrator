@@ -1,0 +1,22 @@
+# Virtual Environment
+venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Models
+models/
+
+# Dataset
+datasets/raw/
+
+# Logs
+logs/
+
+# ML Experiments
+mlruns/
+wandb/touch README.md

@@ -1,0 +1,70 @@
+# =========================
+# Backend
+# =========================
+fastapi
+uvicorn
+
+
+# =========================
+# Machine Learning
+# =========================
+torch
+transformers
+sentence-transformers
+scikit-learn
+numpy
+pandas
+
+
+# =========================
+# NLP Processing
+# =========================
+spacy
+
+
+# =========================
+# Workflow Planning
+# =========================
+networkx
+graphviz
+
+
+# =========================
+# Reinforcement Learning
+# =========================
+gymnasium
+stable-baselines3
+
+
+# =========================
+# Database
+# =========================
+psycopg2-binary
+sqlalchemy
+
+
+# =========================
+# Vector Database
+# =========================
+faiss-cpu
+
+
+# =========================
+# Frontend
+# =========================
+streamlit
+
+
+# =========================
+# Experiment Tracking
+# =========================
+mlflow
+wandb
+
+
+# =========================
+# Utilities
+# =========================
+python-dotenv
+requests
+tqdm
