@@ -1,0 +1,1 @@
+{"policy_name": "rl_contextual_bandit_policy", "state_dim": 8, "weights": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]], "bias": [0.0]}

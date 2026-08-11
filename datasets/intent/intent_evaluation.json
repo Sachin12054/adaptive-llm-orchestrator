@@ -1,0 +1,110 @@
+[
+  {
+    "text": "What is the capital of France?",
+    "expected_intent": "factual"
+  },
+  {
+    "text": "Who was the first human to land on the Moon?",
+    "expected_intent": "factual"
+  },
+  {
+    "text": "What chemical symbol represents water?",
+    "expected_intent": "factual"
+  },
+  {
+    "text": "Write a Python function to reverse a linked list.",
+    "expected_intent": "coding"
+  },
+  {
+    "text": "How do I parse XML in Rust without using external crates?",
+    "expected_intent": "coding"
+  },
+  {
+    "text": "Implement a binary search tree insertion method in Go.",
+    "expected_intent": "coding"
+  },
+  {
+    "text": "Solve the equation 2x + 5 = 15.",
+    "expected_intent": "mathematics"
+  },
+  {
+    "text": "What is the matrix product of [[1, 2], [3, 4]] and [[5], [6]]?",
+    "expected_intent": "mathematics"
+  },
+  {
+    "text": "Calculate the definite integral of x^3 from 0 to 4.",
+    "expected_intent": "mathematics"
+  },
+  {
+    "text": "Which database architecture would be better for this system and why?",
+    "expected_intent": "reasoning"
+  },
+  {
+    "text": "Analyze whether event sourcing is superior to traditional CRUD for banking ledger auditability.",
+    "expected_intent": "reasoning"
+  },
+  {
+    "text": "Evaluate the security tradeoffs of JWT tokens versus server-side session cookies.",
+    "expected_intent": "reasoning"
+  },
+  {
+    "text": "Summarize the following article into five bullet points.",
+    "expected_intent": "summarization"
+  },
+  {
+    "text": "Give me a brief digest of the main takeaways from this project post-mortem report.",
+    "expected_intent": "summarization"
+  },
+  {
+    "text": "Condense this press release into a two-sentence pitch.",
+    "expected_intent": "summarization"
+  },
+  {
+    "text": "Explain how TCP establishes a connection.",
+    "expected_intent": "explanation"
+  },
+  {
+    "text": "How do virtual memory and page tables function in modern operating systems?",
+    "expected_intent": "explanation"
+  },
+  {
+    "text": "Explain the step-by-step process of cellular respiration.",
+    "expected_intent": "explanation"
+  },
+  {
+    "text": "Write a short story about a robot exploring Mars.",
+    "expected_intent": "creative"
+  },
+  {
+    "text": "Compose a lyrical ballad about a sailor navigating a stormy night.",
+    "expected_intent": "creative"
+  },
+  {
+    "text": "Draft a humorous monologue for a detective solving a crime committed by a ghost.",
+    "expected_intent": "creative"
+  },
+  {
+    "text": "Translate 'Good morning' into Hindi.",
+    "expected_intent": "translation"
+  },
+  {
+    "text": "How do you translate 'Where is the nearest library?' into Italian?",
+    "expected_intent": "translation"
+  },
+  {
+    "text": "Translate this legal disclaimer from English to German.",
+    "expected_intent": "translation"
+  },
+  {
+    "text": "Hello, how are you?",
+    "expected_intent": "conversational"
+  },
+  {
+    "text": "Hey there! How has your morning been going?",
+    "expected_intent": "conversational"
+  },
+  {
+    "text": "Good afternoon! Ready for another productive coding session?",
+    "expected_intent": "conversational"
+  }
+]

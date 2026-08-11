@@ -1,22 +1,73 @@
 # Virtual Environment
 venv/
+env/
+.venv/
 
 # Python
 __pycache__/
 *.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
 
-# Environment
+# Node / Web Frontend
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+
+# Environment variables
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Models
+# Database & Local Data
+*.db
+*.sqlite
+data/embeddings/*
+!data/embeddings/.gitkeep
+data/logs/*
+!data/logs/.gitkeep
+data/rl/*
+!data/rl/.gitkeep
+scratch/
+
+# Models & Experiments
 models/
-
-# Dataset
 datasets/raw/
-
-# Logs
 logs/
-
-# ML Experiments
 mlruns/
-wandb/touch README.md
+wandb/
+
+# IDEs & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+powershell.cmd
+**/powershell.cmd

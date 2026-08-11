@@ -1,0 +1,113 @@
+{
+  "factual": [
+    "What is Python?",
+    "What is a database?",
+    "What is artificial intelligence?",
+    "What is the capital of France?",
+    "Who discovered penicillin and in what year?",
+    "When did World War II officially end?",
+    "What is the largest planet in our solar system?",
+    "Which element has the atomic number 79?",
+    "What is the deepest ocean trench on Earth?",
+    "Who wrote the play Hamlet?",
+    "What is the boiling point of water at sea level?",
+    "In which continent is the Sahara Desert located?",
+    "What is the currency used in Japan?"
+  ],
+  "coding": [
+    "Write a Python function to reverse a linked list.",
+    "How do I implement binary search in C++?",
+    "Fix this null pointer exception in Java.",
+    "Create a REST API endpoint using FastAPI and Pydantic.",
+    "Write an SQL query to find second highest salary.",
+    "How to handle CORS requests in an Express Node server?",
+    "Implement quicksort algorithm recursively.",
+    "Debug this memory leak in my C program.",
+    "Build a React hook for fetching asynchronous data.",
+    "Write a script to parse JSON logs and extract error counts."
+  ],
+  "mathematics": [
+    "Solve the quadratic equation 2x^2 + 5x - 3 = 0.",
+    "What is the derivative of f(x) = sin(x) * e^x?",
+    "Calculate the integral of 1 / (1 + x^2) from 0 to 1.",
+    "Find the eigenvalues of a 2x2 matrix with rows [4, 1] and [2, 3].",
+    "What is the probability of rolling a prime number on a fair 6-sided die?",
+    "Compute the limit of (sin x) / x as x approaches 0.",
+    "Solve the system of linear equations 3x + 2y = 12 and x - y = 1.",
+    "What is the Taylor series expansion of e^x around x=0?",
+    "Calculate the volume of a sphere with radius 5 cm.",
+    "Simplify the expression log(x^3) - 2 * log(x)."
+  ],
+  "reasoning": [
+    "Which database architecture would be better for high-throughput time-series data and why?",
+    "Evaluate the trade-offs between monolithic architecture and microservices.",
+    "Why does increasing thread count not always improve CPU performance?",
+    "Analyze the potential causes of high database lock contention.",
+    "Should we choose PostgreSQL or MongoDB for an e-commerce platform with dynamic catalogs?",
+    "Compare static typing vs dynamic typing in large-scale software engineering.",
+    "What are the structural implications of CAP theorem on distributed consensus?",
+    "How does Garbage Collection overhead impact low-latency trading engines?",
+    "Determine whether optimistic or pessimistic locking is suitable for inventory booking.",
+    "What are the pros and cons of using a graph database for social network recommendation?"
+  ],
+  "summarization": [
+    "Summarize the following research article into five concise bullet points.",
+    "Provide a brief abstract summarizing key takeaways from this meeting transcript.",
+    "Give me a high-level executive summary of this quarterly financial report.",
+    "Condense the following 10-page document into a 200-word overview.",
+    "Synthesize the main conclusions from these three customer feedback surveys.",
+    "Draft a quick TL;DR for this lengthy technical proposal.",
+    "Summarize the core arguments of the Supreme Court ruling.",
+    "Extract key action items and main points from the project retro notes.",
+    "Summarize the main events of the French Revolution in a short paragraph.",
+    "Give a 3-sentence summary of the chapter on transformer attention mechanisms."
+  ],
+  "explanation": [
+    "Explain how TCP establishes a reliable connection using the three-way handshake.",
+    "How does photosynthesis work at a cellular level?",
+    "Explain the concept of quantum entanglement to a high school student.",
+    "What is inflation in economics and how does central bank interest rate policy affect it?",
+    "Explain how Backpropagation updates weights in a neural network.",
+    "Describe how optical fibers transmit data using total internal reflection.",
+    "Explain the difference between process and thread in operating systems.",
+    "How does the immune system distinguish self from non-self cells?",
+    "Explain how docker containers achieve isolation using cgroups and namespaces.",
+    "What is the mechanism of action of mRNA vaccines?"
+  ],
+  "creative": [
+    "Write a short science fiction story about an AI discovering an ancient alien artifact on Mars.",
+    "Compose a poem describing autumn leaves falling in a quiet forest.",
+    "Draft a compelling pitch story for a fantasy novel featuring a time-traveling detective.",
+    "Write a dialogue between Socrates and a modern smartphone user.",
+    "Create a dramatic monologue for a villain realizing their mistake.",
+    "Write a descriptive opening scene for a mystery movie set in 1920s London.",
+    "Generate creative slogan ideas for an eco-friendly coffee brand.",
+    "Write a funny story about a cat secretly running a tech startup.",
+    "Compose a lyrical song verse about traveling across the stars.",
+    "Write a fictional press release announcing the discovery of teleportation."
+  ],
+  "translation": [
+    "Translate 'Good morning, how can I help you today?' into French.",
+    "Convert this paragraph from Spanish into English.",
+    "How do you say 'Thank you very much for your hospitality' in German?",
+    "Translate the phrase 'Knowledge is power' into Latin.",
+    "Translate this Japanese text into clear business English.",
+    "Provide a Spanish translation of the privacy policy statement.",
+    "How would you express 'Nice to meet you' in Mandarin Chinese?",
+    "Translate this Italian recipe into English.",
+    "Translate 'Where is the nearest train station?' into Russian.",
+    "Convert this Hindi sentence into grammatically correct English."
+  ],
+  "conversational": [
+    "Hello! How are you doing today?",
+    "Hey there, good morning!",
+    "Hi, I hope you are having a great week.",
+    "What's up?",
+    "Good evening! Thanks for chatting with me.",
+    "Hi agent, happy Friday!",
+    "Hey! Are you ready to help me out?",
+    "Hello there! How has your day been so far?",
+    "Greetings! Nice to connect with you.",
+    "Hi, just stopping by to say hello!"
+  ]
+}
