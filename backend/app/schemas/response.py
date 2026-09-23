@@ -1,4 +1,4 @@
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
 from pydantic import BaseModel, Field
 from app.schemas.provider import TokenUsage
 
@@ -23,6 +23,17 @@ class ResponseGenerationResponse(BaseModel):
     usage: Optional[TokenUsage] = Field(None, description="Token usage metrics if provided by provider")
     execution_status: str = Field(..., description="Status: completed, failed, unsupported_model, not_configured")
     error_message: Optional[str] = Field(None, description="Error details if execution failed")
+
+    # Cost Telemetry Fields
+    cost: float = Field(0.0, description="Calculated monetary API execution cost in USD")
+    cost_currency: str = Field("USD", description="Currency code (default USD)")
+    cost_source: str = Field("zero_local", description="Source: zero_local, configured_pricing_estimate, provider_reported, unknown")
+    
+    # Failover Telemetry
+    initial_model: Optional[str] = Field(None, description="Initial model selected prior to failover")
+    failover_used: bool = Field(False, description="True if fallback model was executed following provider failure")
+    attempts: int = Field(1, description="Total execution attempts")
+    attempts_detail: Optional[list] = Field(default_factory=list, description="Per-attempt telemetry breakdown")
 
 class ResponseStatusResponse(BaseModel):
     status: str = Field(..., description="Response generator status: ready, unconfigured")

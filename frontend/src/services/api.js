@@ -105,4 +105,9 @@ export const getRLStatus = async () => {
   return res.data;
 };
 
+export const getCostMetrics = async () => {
+  const res = await api.get('/metrics/cost');
+  return res.data;
+};
+
 export default api;

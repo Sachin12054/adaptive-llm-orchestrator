@@ -30,11 +30,11 @@ class OnlineProviderManager:
 
         # 1. Gemini Model Candidate
         gemini_status = self.providers["gemini"].get_status()
-        gemini_model_id = getattr(settings, "GEMINI_MODEL", "gemini-2.5-flash")
+        gemini_model_id = getattr(settings, "GEMINI_MODEL", "gemini-3.5-flash")
         candidates.append(ModelMetadata(
             model_id=gemini_model_id,
             provider="Google Gemini API",
-            display_name="Gemini 2.5 Flash",
+            display_name="Gemini 3.5 Flash",
             model_type="llm",
             capabilities=["general_qa", "reasoning", "explanation", "coding", "summarization"],
             context_length=1000000,
@@ -43,6 +43,8 @@ class OnlineProviderManager:
             available=gemini_status.configured,
             configuration_status="configured" if gemini_status.configured else "not_configured",
             requirements={"env": "GEMINI_API_KEY"},
+            input_cost_per_1k=0.00015,
+            output_cost_per_1k=0.00060,
             metadata_source="online_provider_manager"
         ))
 
@@ -61,6 +63,8 @@ class OnlineProviderManager:
             available=mistral_status.configured,
             configuration_status="configured" if mistral_status.configured else "not_configured",
             requirements={"env": "MISTRAL_API_KEY"},
+            input_cost_per_1k=0.00020,
+            output_cost_per_1k=0.00060,
             metadata_source="online_provider_manager"
         ))
 
@@ -79,6 +83,8 @@ class OnlineProviderManager:
             available=groq_status.configured,
             configuration_status="configured" if groq_status.configured else "not_configured",
             requirements={"env": "GROQ_API_KEY"},
+            input_cost_per_1k=0.00059,
+            output_cost_per_1k=0.00079,
             metadata_source="online_provider_manager"
         ))
 
@@ -97,6 +103,8 @@ class OnlineProviderManager:
             available=openrouter_status.configured,
             configuration_status="configured" if openrouter_status.configured else "not_configured",
             requirements={"env": "OPENROUTER_API_KEY"},
+            input_cost_per_1k=0.00040,
+            output_cost_per_1k=0.00040,
             metadata_source="online_provider_manager"
         ))
 

@@ -14,6 +14,8 @@ from app.schemas.provider import (
     TokenUsage
 )
 
+from app.services.cost_calculator import CostCalculator
+
 logger = logging.getLogger("orchestrator")
 
 class MistralProvider(BaseLLMProvider):
@@ -92,6 +94,7 @@ class MistralProvider(BaseLLMProvider):
                     total_tokens=getattr(response.usage, "total_tokens", None)
                 )
 
+            cost_info = CostCalculator.calculate_cost("Mistral API", target_model, usage, "online")
             logger.info(f"Mistral API call via SDK completed in {latency_ms} ms.")
             return ProviderGenerationResponse(
                 provider="Mistral API",
@@ -99,6 +102,9 @@ class MistralProvider(BaseLLMProvider):
                 generated_text=generated_text,
                 finish_reason="STOP" if generated_text else "UNKNOWN",
                 usage=usage,
+                cost=cost_info["cost"],
+                cost_currency=cost_info["cost_currency"],
+                cost_source=cost_info["cost_source"],
                 latency_ms=latency_ms,
                 success=True if generated_text else False,
                 error_message=None if generated_text else "Mistral API returned empty content"
@@ -155,6 +161,7 @@ class MistralProvider(BaseLLMProvider):
                 total_tokens=usage_raw.get("total_tokens")
             )
 
+            cost_info = CostCalculator.calculate_cost("Mistral API", target_model, usage, "online")
             logger.info(f"Mistral REST API call completed in {latency_ms} ms.")
             return ProviderGenerationResponse(
                 provider="Mistral API",
@@ -162,6 +169,9 @@ class MistralProvider(BaseLLMProvider):
                 generated_text=generated_text,
                 finish_reason=choices[0].get("finish_reason", "STOP") if choices else "STOP",
                 usage=usage,
+                cost=cost_info["cost"],
+                cost_currency=cost_info["cost_currency"],
+                cost_source=cost_info["cost_source"],
                 latency_ms=latency_ms,
                 success=True if generated_text else False,
                 error_message=None if generated_text else "Mistral API returned empty text"

@@ -1,0 +1,65 @@
+[
+  {
+    "experiment_id": "EXP_BENCHMARK_V1_A",
+    "strategy": "A",
+    "dataset_version": "v1.0.0",
+    "timestamp": "2026-09-03T09:37:02Z",
+    "sample_count": 113,
+    "status": "COMPLETED",
+    "output_file": "C:\\Users\\sachi\\Desktop\\Amrita\\Sem-7\\RL\\Project\\adaptive-llm-orchestrator\\validation\\results\\raw\\raw_results_strategy_A.jsonl"
+  },
+  {
+    "experiment_id": "EXP_BENCHMARK_V1_B",
+    "strategy": "B",
+    "dataset_version": "v1.0.0",
+    "timestamp": "2026-09-03T09:47:06Z",
+    "sample_count": 113,
+    "status": "COMPLETED",
+    "output_file": "C:\\Users\\sachi\\Desktop\\Amrita\\Sem-7\\RL\\Project\\adaptive-llm-orchestrator\\validation\\results\\raw\\raw_results_strategy_B.jsonl"
+  },
+  {
+    "experiment_id": "EXP_BENCHMARK_V1_C",
+    "strategy": "C",
+    "dataset_version": "v1.0.0",
+    "timestamp": "2026-09-03T11:59:38Z",
+    "sample_count": 113,
+    "status": "COMPLETED",
+    "output_file": "C:\\Users\\sachi\\Desktop\\Amrita\\Sem-7\\RL\\Project\\adaptive-llm-orchestrator\\validation\\results\\raw\\raw_results_strategy_C.jsonl"
+  },
+  {
+    "experiment_id": "EXP_BENCHMARK_V1_D",
+    "strategy": "D",
+    "dataset_version": "v1.0.0",
+    "timestamp": "2026-09-03T12:06:15Z",
+    "sample_count": 113,
+    "status": "COMPLETED",
+    "output_file": "C:\\Users\\sachi\\Desktop\\Amrita\\Sem-7\\RL\\Project\\adaptive-llm-orchestrator\\validation\\results\\raw\\raw_results_strategy_D.jsonl"
+  },
+  {
+    "experiment_id": "EXP_BENCHMARK_V1_E",
+    "strategy": "E",
+    "dataset_version": "v1.0.0",
+    "timestamp": "2026-09-03T12:11:43Z",
+    "sample_count": 113,
+    "status": "COMPLETED",
+    "output_file": "C:\\Users\\sachi\\Desktop\\Amrita\\Sem-7\\RL\\Project\\adaptive-llm-orchestrator\\validation\\results\\raw\\raw_results_strategy_E.jsonl"
+  },
+  {
+    "experiment_id": "EXP_BENCHMARK_V1_F",
+    "strategy": "F",
+    "dataset_version": "v1.0.0",
+    "timestamp": "2026-09-03T12:20:15Z",
+    "sample_count": 113,
+    "status": "COMPLETED",
+    "output_file": "C:\\Users\\sachi\\Desktop\\Amrita\\Sem-7\\RL\\Project\\adaptive-llm-orchestrator\\validation\\results\\raw\\raw_results_strategy_F.jsonl"
+  },
+  {
+    "experiment_id": "EXP_BENCHMARK_V1_G",
+    "strategy": "G",
+    "dataset_version": "v1.0.0",
+    "timestamp": "2026-09-03T12:26:19Z",
+    "sample_count": 113,
+    "status": "COMPLETED",
+    "output_file": "C:\\Users\\sachi\\Desktop\\Amrita\\Sem-7\\RL\\Project\\adaptive-llm-orchestrator\\validation\\results\\raw\\raw_results_strategy_G.jsonl"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "run_id": "RUN_6_CONTROLLED_COLLECTION_FINAL_ATTEMPT",
+  "dataset_path": "data/evaluation/run6/final_attempt/run6_experiences.jsonl",
+  "dataset_sha256": "4dabd57bcf6081b369b6065092306fce74d51119aecf3a6808dc80c446856e90",
+  "attempt_count": 7,
+  "raw_record_count": 7,
+  "valid_record_count": 7,
+  "invalid_count": 0,
+  "duplicate_count": 0,
+  "target_success_count": 4,
+  "selected_action_counts": {"A0": 3, "A1": 0, "A2": 0, "A3": 4, "A4": 0, "A5": 0, "A6": 0, "A7": 0},
+  "executed_action_counts": {"A0": 2, "A1": 1, "A2": 0, "A3": 1, "A4": 0, "A5": 0, "A6": 3, "A7": 0},
+  "valid_record_action_counts": {"A0": 2, "A1": 1, "A2": 0, "A3": 1, "A4": 0, "A5": 0, "A6": 3, "A7": 0},
+  "positivity_coverage": 0.5714285714,
+  "propensity": {"min": 0.05, "max": 0.86667, "mean": 0.6285728571},
+  "reward": {"min": 0.7283, "max": 1.0, "mean": 0.9240428571},
+  "latency_ms": {"mean": 10488.9157, "median": 10376.0, "p95": 15835.4},
+  "success_rate": 1.0,
+  "fallback_count": 0,
+  "provider_failures": {
+    "deepseek-r1-7b": "target not executed; local routing selected gemma-3-4b",
+    "mistral-small-latest": "429 rate limit; execution used meta-llama/llama-3.3-70b-instruct",
+    "llama-3.3-70b-versatile": "403 Forbidden; execution used meta-llama/llama-3.3-70b-instruct"
+  },
+  "action_7_generation_count": 0,
+  "canonical_buffer_before": {"count": 10, "sha256": "a357194da38581cb1f51cb4078a569a8d448f4128f179281f3b82641aceaac6a"},
+  "canonical_buffer_after": {"count": 10, "sha256": "a357194da38581cb1f51cb4078f179281f3b82641aceaac6a"},
+  "canonical_buffer_unchanged_during_attempt": true,
+  "training_allowed": false,
+  "training_block_reason": "A2, A4, and A5 have zero valid target-provider observations; A0-A6 coverage gate failed."
+}

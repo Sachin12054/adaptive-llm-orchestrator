@@ -33,7 +33,9 @@ class DecisionRequest(BaseModel):
     complexity: Optional[ComplexityInput] = Field(None, description="Optional pre-computed Step 10 complexity analysis")
     resources: Optional[ResourceInput] = Field(None, description="Optional pre-computed Step 11 resource telemetry")
     execution_mode: Optional[str] = Field("local", description="Execution mode: local or online")
+    budget_mode: Optional[str] = Field("balanced", description="Routing budget mode: economy, balanced, or quality")
     excluded_models: Optional[List[str]] = Field(default_factory=list, description="Optional list of failed model IDs to exclude during fallback re-evaluation")
+    excluded_providers: Optional[List[str]] = Field(default_factory=list, description="Optional list of exhausted provider names to exclude during fallback re-evaluation")
 
 class CandidateScoreBreakdown(BaseModel):
     model_id: str = Field(..., description="Candidate model identifier")
@@ -45,6 +47,10 @@ class CandidateScoreBreakdown(BaseModel):
     complexity_fit_score: float = Field(0.0, description="Complexity fit score [0.0 - 1.0]")
     resource_fit_score: float = Field(0.0, description="Resource state fit score [0.0 - 1.0]")
     context_fit_score: float = Field(0.0, description="Context length fit score [0.0 - 1.0]")
+    cost_fit_score: float = Field(1.0, description="Cost efficiency score [0.0 - 1.0]")
+    latency_fit_score: float = Field(1.0, description="Latency fit score [0.0 - 1.0]")
+    quality_score: float = Field(1.0, description="Quality tier score [0.0 - 1.0]")
+    reliability_score: float = Field(1.0, description="Historical reliability score [0.0 - 1.0]")
     candidate_score: float = Field(0.0, description="Transparent weighted candidate decision score [0.0 - 1.0]")
 
 class DecisionTrace(BaseModel):
@@ -58,6 +64,8 @@ class DecisionTrace(BaseModel):
     decision_score: float = Field(0.0, description="Winning candidate decision score")
     policy: str = Field("baseline_adaptive_policy", description="Decision policy identifier used")
     shadow_rl_decision: Optional[Dict[str, Any]] = Field(None, description="Shadow RL policy proposal and prediction score")
+    candidate_action_probabilities: Optional[Dict[str, float]] = Field(None, description="Behavior policy candidate action probabilities P(a|s)")
+    propensity_probability: Optional[float] = Field(None, description="Behavior policy propensity P(selected_action|s)")
     decision_latency_ms: float = Field(..., description="Decision policy execution latency in milliseconds")
 
 class DecisionResponse(BaseModel):

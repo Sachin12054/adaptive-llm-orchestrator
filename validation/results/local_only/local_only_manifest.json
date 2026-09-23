@@ -1,0 +1,195 @@
+{
+  "experiment_condition": "LOCAL_ONLY_V1",
+  "run_id": "RUN_2_LOCAL_ONLY_V1",
+  "total_prompts": 113,
+  "total_strategies": 7,
+  "total_executions": 791,
+  "total_duration_seconds": 0.02,
+  "summary_table": [
+    {
+      "strategy_id": "A",
+      "strategy_name": "A",
+      "models_used": "gemma-3-4b",
+      "sample_count": 113,
+      "quality_mean_0_to_5": 4.56,
+      "quality_95_ci": [
+        4.4977,
+        4.615
+      ],
+      "latency_mean_ms": 18826.1,
+      "latency_p50_ms": 20528.99,
+      "latency_p95_ms": 22296.47,
+      "latency_std_ms": 4835.98,
+      "latency_95_ci": [
+        17903.5965,
+        19685.7971
+      ],
+      "total_cost_usd": 0.0,
+      "average_cost_usd": 0.0,
+      "success_rate_pct": 1.0,
+      "failover_rate_pct": 0.0,
+      "status": "LOCAL_ONLY_MEASURED"
+    },
+    {
+      "strategy_id": "B",
+      "strategy_name": "B",
+      "models_used": "qwen-coder-3b",
+      "sample_count": 113,
+      "quality_mean_0_to_5": 4.24,
+      "quality_95_ci": [
+        4.1403,
+        4.3381
+      ],
+      "latency_mean_ms": 5497.6,
+      "latency_p50_ms": 2963.11,
+      "latency_p95_ms": 10733.97,
+      "latency_std_ms": 3613.58,
+      "latency_95_ci": [
+        4857.6752,
+        6142.1421
+      ],
+      "total_cost_usd": 0.0,
+      "average_cost_usd": 0.0,
+      "success_rate_pct": 1.0,
+      "failover_rate_pct": 0.0,
+      "status": "LOCAL_ONLY_MEASURED"
+    },
+    {
+      "strategy_id": "C",
+      "strategy_name": "C",
+      "models_used": "deepseek-r1-7b",
+      "sample_count": 113,
+      "quality_mean_0_to_5": 4.62,
+      "quality_95_ci": [
+        4.5504,
+        4.6783
+      ],
+      "latency_mean_ms": 65782.28,
+      "latency_p50_ms": 68884.8,
+      "latency_p95_ms": 69640.85,
+      "latency_std_ms": 10690.21,
+      "latency_95_ci": [
+        63613.6957,
+        67548.443
+      ],
+      "total_cost_usd": 0.0,
+      "average_cost_usd": 0.0,
+      "success_rate_pct": 1.0,
+      "failover_rate_pct": 0.0,
+      "status": "LOCAL_ONLY_MEASURED"
+    },
+    {
+      "strategy_id": "D",
+      "strategy_name": "D",
+      "models_used": "deepseek-r1-7b, gemma-3-4b, qwen-coder-3b",
+      "sample_count": 113,
+      "quality_mean_0_to_5": 4.49,
+      "quality_95_ci": [
+        4.4119,
+        4.5659
+      ],
+      "latency_mean_ms": 35997.36,
+      "latency_p50_ms": 26361.78,
+      "latency_p95_ms": 80538.54,
+      "latency_std_ms": 28453.62,
+      "latency_95_ci": [
+        30967.9195,
+        41550.8634
+      ],
+      "total_cost_usd": 0.0,
+      "average_cost_usd": 0.0,
+      "success_rate_pct": 1.0,
+      "failover_rate_pct": 0.0,
+      "status": "LOCAL_ONLY_MEASURED"
+    },
+    {
+      "strategy_id": "E",
+      "strategy_name": "E",
+      "models_used": "gemma-3-4b, deepseek-r1-7b, qwen-coder-3b",
+      "sample_count": 113,
+      "quality_mean_0_to_5": 4.43,
+      "quality_95_ci": [
+        4.3442,
+        4.5238
+      ],
+      "latency_mean_ms": 36669.5,
+      "latency_p50_ms": 27702.82,
+      "latency_p95_ms": 80713.52,
+      "latency_std_ms": 29291.07,
+      "latency_95_ci": [
+        31000.9801,
+        42137.1783
+      ],
+      "total_cost_usd": 0.0,
+      "average_cost_usd": 0.0,
+      "success_rate_pct": 1.0,
+      "failover_rate_pct": 0.0,
+      "status": "LOCAL_ONLY_MEASURED"
+    },
+    {
+      "strategy_id": "F",
+      "strategy_name": "F",
+      "models_used": "gemma-3-4b, deepseek-r1-7b, qwen-coder-3b",
+      "sample_count": 113,
+      "quality_mean_0_to_5": 4.57,
+      "quality_95_ci": [
+        4.5058,
+        4.6311
+      ],
+      "latency_mean_ms": 24210.62,
+      "latency_p50_ms": 20507.71,
+      "latency_p95_ms": 71329.34,
+      "latency_std_ms": 18088.13,
+      "latency_95_ci": [
+        20746.3021,
+        27797.5226
+      ],
+      "total_cost_usd": 0.0,
+      "average_cost_usd": 0.0,
+      "success_rate_pct": 1.0,
+      "failover_rate_pct": 0.0,
+      "status": "LOCAL_ONLY_MEASURED"
+    },
+    {
+      "strategy_id": "G",
+      "strategy_name": "G",
+      "models_used": "gemma-3-4b, deepseek-r1-7b, qwen-coder-3b",
+      "sample_count": 113,
+      "quality_mean_0_to_5": 4.42,
+      "quality_95_ci": [
+        4.3321,
+        4.5044
+      ],
+      "latency_mean_ms": 32463.72,
+      "latency_p50_ms": 19463.08,
+      "latency_p95_ms": 81038.9,
+      "latency_std_ms": 30569.16,
+      "latency_95_ci": [
+        27350.723,
+        38082.7933
+      ],
+      "total_cost_usd": 0.0,
+      "average_cost_usd": 0.0,
+      "success_rate_pct": 1.0,
+      "failover_rate_pct": 0.0,
+      "status": "LOCAL_ONLY_MEASURED"
+    }
+  ],
+  "rl_shadow_evaluation": {
+    "status": "SUCCESS",
+    "total_records": 799,
+    "valid_propensity_records": 291,
+    "agreed_records": 177,
+    "policy_agreement_rate": 0.6082,
+    "estimated_policy_value_ips": 1.1421,
+    "estimated_policy_value_snips": 0.9437,
+    "effective_sample_size_ess": 19.66,
+    "positivity_coverage": 0.3642,
+    "mean_observed_reward": 0.9101,
+    "rl_action_distribution": {
+      "gemma-3-4b": 255,
+      "qwen-coder-3b": 36
+    }
+  },
+  "timestamp": "2026-09-04T05:33:01Z"
+}

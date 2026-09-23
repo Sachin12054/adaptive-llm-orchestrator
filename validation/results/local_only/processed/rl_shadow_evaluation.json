@@ -1,0 +1,16 @@
+{
+  "status": "SUCCESS",
+  "total_records": 799,
+  "valid_propensity_records": 291,
+  "agreed_records": 177,
+  "policy_agreement_rate": 0.6082,
+  "estimated_policy_value_ips": 1.1421,
+  "estimated_policy_value_snips": 0.9437,
+  "effective_sample_size_ess": 19.66,
+  "positivity_coverage": 0.3642,
+  "mean_observed_reward": 0.9101,
+  "rl_action_distribution": {
+    "gemma-3-4b": 255,
+    "qwen-coder-3b": 36
+  }
+}

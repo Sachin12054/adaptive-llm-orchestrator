@@ -1,0 +1,24 @@
+{
+  "strategy_id": "F",
+  "strategy_name": "F",
+  "models_used": "gemma-3-4b, deepseek-r1-7b, qwen-coder-3b",
+  "sample_count": 113,
+  "quality_mean_0_to_5": 4.57,
+  "quality_95_ci": [
+    4.5058,
+    4.6311
+  ],
+  "latency_mean_ms": 24210.62,
+  "latency_p50_ms": 20507.71,
+  "latency_p95_ms": 71329.34,
+  "latency_std_ms": 18088.13,
+  "latency_95_ci": [
+    20746.3021,
+    27797.5226
+  ],
+  "total_cost_usd": 0.0,
+  "average_cost_usd": 0.0,
+  "success_rate_pct": 1.0,
+  "failover_rate_pct": 0.0,
+  "status": "LOCAL_ONLY_MEASURED"
+}

@@ -125,6 +125,9 @@ class ModelManager:
                 finish_reason=provider_resp.finish_reason if success else "FAILED",
                 latency_ms=total_latency_ms,
                 usage=provider_resp.usage if success else None,
+                cost=getattr(provider_resp, "cost", 0.0) if success else 0.0,
+                cost_currency=getattr(provider_resp, "cost_currency", "USD"),
+                cost_source=getattr(provider_resp, "cost_source", "configured_pricing_estimate") if success else "unknown",
                 execution_status="completed" if success else "failed",
                 error_message=None if success else (provider_resp.error_message or "Online provider returned no output text.")
             )
@@ -264,6 +267,9 @@ class ModelManager:
             ollama_prompt_eval_ms=getattr(provider_resp, "ollama_prompt_eval_ms", None),
             ollama_eval_ms=getattr(provider_resp, "ollama_eval_ms", None),
             usage=provider_resp.usage,
+            cost=getattr(provider_resp, "cost", 0.0),
+            cost_currency=getattr(provider_resp, "cost_currency", "USD"),
+            cost_source=getattr(provider_resp, "cost_source", "zero_local"),
             execution_status="completed" if provider_resp.success else "failed",
             error_message=provider_resp.error_message
         )

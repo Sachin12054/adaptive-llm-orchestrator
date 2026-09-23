@@ -1,0 +1,23 @@
+{
+  "strategy_id": "D",
+  "strategy_name": "D",
+  "sample_count": 113,
+  "quality_mean_0_to_5": 1.38,
+  "quality_95_ci": [
+    1.0134,
+    1.7628
+  ],
+  "latency_mean_ms": 3537.55,
+  "latency_p50_ms": 76.3,
+  "latency_p95_ms": 16716.47,
+  "latency_std_ms": 6907.99,
+  "latency_95_ci": [
+    2308.5427,
+    4957.9848
+  ],
+  "total_cost_usd": 0.0088,
+  "average_cost_usd": 7.8e-05,
+  "success_rate": 0.3186,
+  "failover_rate": 0.0,
+  "status": "PRIMARY_CONTROLLED_MEASURED"
+}

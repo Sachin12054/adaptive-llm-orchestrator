@@ -1,0 +1,97 @@
+{
+  "total_prompts": 100,
+  "successful_executions": 7,
+  "failed_executions": 93,
+  "failure_percentage": 93.0,
+  "total_wall_clock_time_sec": 979.31,
+  "latency_metrics_ms": {
+    "average": 9790.51,
+    "median": 4566.71,
+    "p95": 20537.93,
+    "min": 988.95,
+    "max": 229636.02
+  },
+  "total_cost_usd": 0.001135,
+  "average_cost_usd": 1.1e-05,
+  "average_reward": 0.0,
+  "reward_by_complexity_tier": {
+    "low": 0.0,
+    "medium": 0.0,
+    "high": 0.0,
+    "very_high": 0.0
+  },
+  "cost_by_complexity_tier": {
+    "low": 2e-06,
+    "medium": 1.7e-05,
+    "high": 1.9e-05,
+    "very_high": 7e-06
+  },
+  "routing_distribution_by_model": {
+    "gemini-3.5-flash": 80,
+    "mistral-small-latest": 7,
+    "meta-llama/llama-3.3-70b-instruct": 8,
+    "llama-3.3-70b-versatile": 5
+  },
+  "routing_distribution_by_provider": {
+    "Google Gemini API": 80,
+    "Mistral API": 7,
+    "OpenRouter API": 8,
+    "Groq API": 5
+  },
+  "routing_distribution_by_complexity": {
+    "low": 26,
+    "medium": 35,
+    "very_high": 24,
+    "high": 15
+  },
+  "error_categories_breakdown": {
+    "rate_limit_failure": 48,
+    "model_execution_failure": 14,
+    "infrastructure_failure": 31
+  },
+  "intent_classification_accuracy_percent": 65.0,
+  "complexity_classification_accuracy_percent": 56.0,
+  "fallback_count": 0,
+  "rl_baseline_agreement_rate_percent": 0.0,
+  "routing_matrix_gt_tier_vs_model": {
+    "low": {
+      "gemini-3.5-flash": 22,
+      "mistral-small-latest": 3
+    },
+    "medium": {
+      "gemini-3.5-flash": 22,
+      "meta-llama/llama-3.3-70b-instruct": 1,
+      "mistral-small-latest": 1,
+      "llama-3.3-70b-versatile": 1
+    },
+    "high": {
+      "gemini-3.5-flash": 20,
+      "llama-3.3-70b-versatile": 3,
+      "meta-llama/llama-3.3-70b-instruct": 1,
+      "mistral-small-latest": 1
+    },
+    "very_high": {
+      "meta-llama/llama-3.3-70b-instruct": 6,
+      "gemini-3.5-flash": 16,
+      "llama-3.3-70b-versatile": 1,
+      "mistral-small-latest": 2
+    }
+  },
+  "capability_matrix_gt_tier_vs_capability": {
+    "low": {
+      "Medium": 25
+    },
+    "medium": {
+      "Medium": 23,
+      "Large/70B": 2
+    },
+    "high": {
+      "Medium": 21,
+      "Large/70B": 4
+    },
+    "very_high": {
+      "Large/70B": 7,
+      "Medium": 18
+    }
+  }
+}

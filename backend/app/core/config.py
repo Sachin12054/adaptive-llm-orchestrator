@@ -22,11 +22,19 @@ class Settings(BaseSettings):
     VERSION: str = "0.1.0"
     API_V1_STR: str = "/api"
 
+    PRODUCTION_POLICY: str = os.getenv("PRODUCTION_POLICY", "rl")
+    FALLBACK_POLICY: str = os.getenv("FALLBACK_POLICY", "baseline")
+
+    # Controlled RL Exploration & Data Collection Mode Settings
+    RL_DATA_COLLECTION_MODE: bool = os.getenv("RL_DATA_COLLECTION_MODE", "false").lower() == "true"
+    EXPLORATION_EPSILON: float = float(os.getenv("EXPLORATION_EPSILON", "0.20"))
+    EXPLORATION_SEED: int = int(os.getenv("EXPLORATION_SEED", "42"))
+
     API_HOST: str = os.getenv("API_HOST", "127.0.0.1")
     API_PORT: int = int(os.getenv("API_PORT", "8000"))
 
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
-    GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
     MISTRAL_API_KEY: str = os.getenv("MISTRAL_API_KEY", "")
     MISTRAL_MODEL: str = os.getenv("MISTRAL_MODEL", "mistral-small-latest")
     MISTRAL_ENABLED: bool = os.getenv("MISTRAL_ENABLED", "true").lower() == "true"
@@ -61,9 +69,9 @@ class Settings(BaseSettings):
     COMPLEXITY_WEIGHT_CONTEXT: float = float(os.getenv("COMPLEXITY_WEIGHT_CONTEXT", "0.15"))
     COMPLEXITY_WEIGHT_OUTPUT: float = float(os.getenv("COMPLEXITY_WEIGHT_OUTPUT", "0.10"))
 
-    COMPLEXITY_LOW_THRESHOLD: float = float(os.getenv("COMPLEXITY_LOW_THRESHOLD", "0.30"))
-    COMPLEXITY_MEDIUM_THRESHOLD: float = float(os.getenv("COMPLEXITY_MEDIUM_THRESHOLD", "0.60"))
-    COMPLEXITY_HIGH_THRESHOLD: float = float(os.getenv("COMPLEXITY_HIGH_THRESHOLD", "0.80"))
+    COMPLEXITY_LOW_THRESHOLD: float = float(os.getenv("COMPLEXITY_LOW_THRESHOLD", "0.3279"))
+    COMPLEXITY_MEDIUM_THRESHOLD: float = float(os.getenv("COMPLEXITY_MEDIUM_THRESHOLD", "0.4753"))
+    COMPLEXITY_HIGH_THRESHOLD: float = float(os.getenv("COMPLEXITY_HIGH_THRESHOLD", "0.5564"))
 
     COMPLEXITY_PROTOTYPES_DATASET: str = os.getenv("COMPLEXITY_PROTOTYPES_DATASET", "datasets/complexity/complexity_prototypes.json")
     COMPLEXITY_CACHE_PATH: str = os.getenv("COMPLEXITY_CACHE_PATH", "data/embeddings/complexity_prototypes_cache.json")

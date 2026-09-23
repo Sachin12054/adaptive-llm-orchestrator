@@ -14,6 +14,8 @@ class ModelMetadata(BaseModel):
     available: bool = Field(..., description="True if model is installed or API key is configured")
     configuration_status: str = Field(..., description="Status: configured, not_configured, or partially_configured")
     requirements: Dict[str, Any] = Field(default_factory=dict, description="Hardware/software prerequisites or environment variables")
+    input_cost_per_1k: float = Field(0.0, description="Cost per 1,000 input tokens in USD")
+    output_cost_per_1k: float = Field(0.0, description="Cost per 1,000 output tokens in USD")
     metadata_source: str = Field(..., description="Origin source of metadata specification")
 
 class ModelRegistryResponse(BaseModel):

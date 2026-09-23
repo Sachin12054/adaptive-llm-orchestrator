@@ -239,22 +239,61 @@ const App = () => {
                 candidates: evt.metadata?.candidates || []
               }
             }));
+          }
 
-            if (isComplexPrompt && selectedModel) {
-              getComplexPlan(prompt, executionMode, selectedModel)
-                .then((plan) => {
-                  if (currentRunIdRef.current === runId) {
-                    setComplexPlan(plan);
-                    appendLog(`Task decomposition generated ${plan.total_subtasks} subtasks assigned policy model '${selectedModel}'.`);
+          if (evt.stage === 'complex_decomposition' && evt.metadata) {
+            setComplexPlan({
+              is_complex: true,
+              original_prompt: prompt,
+              total_subtasks: evt.metadata.total_subtasks,
+              execution_levels: evt.metadata.execution_levels,
+              subtasks: evt.metadata.subtasks || [],
+              plan_latency_ms: 0.0,
+              total_execution_latency_ms: 0.0,
+              execution_success: false,
+              aggregated_response: null
+            });
+          }
+
+          if (evt.stage === 'complex_execution' && evt.task_id) {
+            setComplexPlan((prev) => {
+              if (!prev || !prev.subtasks) return prev;
+              const updatedSubtasks = prev.subtasks.map((st) => {
+                if (st.task_id === evt.task_id) {
+                  const updated = { ...st };
+                  if (evt.status === 'ready') updated.status = 'READY';
+                  if (evt.status === 'running') updated.status = 'RUNNING';
+                  if (evt.status === 'completed') {
+                    updated.status = 'COMPLETED';
+                    updated.execution_success = true;
+                    if (evt.metadata?.latency_ms) updated.latency_ms = evt.metadata.latency_ms;
+                    if (evt.metadata?.model) updated.assigned_model = evt.metadata.model;
                   }
-                })
-                .catch((err) => console.warn('Complex plan fetch error:', err));
-            }
+                  if (evt.status === 'failed') {
+                    updated.status = 'FAILED';
+                    updated.execution_success = false;
+                    if (evt.metadata?.error) updated.error_message = evt.metadata.error;
+                  }
+                  if (evt.event_type === 'provider_failover' && evt.metadata) {
+                    updated.failover_used = true;
+                    if (!updated.initial_model) updated.initial_model = evt.metadata.primary_model;
+                    updated.assigned_model = evt.metadata.fallback_model;
+                    updated.attempts = (updated.attempts || 1) + 1;
+                  }
+                  return updated;
+                }
+                return st;
+              });
+              return { ...prev, subtasks: updatedSubtasks };
+            });
           }
 
           if (evt.stage === 'final_response' && evt.payload) {
             finalRes = evt.payload;
             setOrchestrationRes(finalRes);
+            if (finalRes.complex_plan) {
+              setComplexPlan(finalRes.complex_plan);
+            }
           }
         },
         null,

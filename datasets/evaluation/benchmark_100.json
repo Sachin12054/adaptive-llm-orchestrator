@@ -1,0 +1,602 @@
+[
+  {
+    "id": "bench-001",
+    "prompt": "What is the capital of France?",
+    "intent": "factual",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-002",
+    "prompt": "Who wrote the play Hamlet and in what century was it published?",
+    "intent": "factual",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-003",
+    "prompt": "What is the chemical symbol for gold and its atomic number?",
+    "intent": "factual",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-004",
+    "prompt": "Write a Python print statement that outputs Hello World.",
+    "intent": "coding",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-005",
+    "prompt": "How do you declare a constant variable in JavaScript?",
+    "intent": "coding",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-006",
+    "prompt": "What is the syntax for creating an empty list in Python?",
+    "intent": "coding",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-007",
+    "prompt": "What is 15 multiplied by 8?",
+    "intent": "mathematics",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-008",
+    "prompt": "Solve the simple linear equation: 2x + 6 = 14.",
+    "intent": "mathematics",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-009",
+    "prompt": "What is the square root of 144?",
+    "intent": "mathematics",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-010",
+    "prompt": "Why is the sky blue during a clear day?",
+    "intent": "explanation",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-011",
+    "prompt": "Explain what a primary key is in a relational database.",
+    "intent": "explanation",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-012",
+    "prompt": "Briefly describe what HTML stands for and what it is used for.",
+    "intent": "explanation",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-013",
+    "prompt": "Summarize this sentence in three words: Artificial intelligence is transforming global technology rapidly.",
+    "intent": "summarization",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-014",
+    "prompt": "Provide a 1-sentence summary of what a search engine does.",
+    "intent": "summarization",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-015",
+    "prompt": "Translate 'Good morning, how are you?' into French.",
+    "intent": "translation",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-016",
+    "prompt": "Translate 'Thank you very much' into Spanish.",
+    "intent": "translation",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-017",
+    "prompt": "Translate 'Knowledge is power' into German.",
+    "intent": "translation",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-018",
+    "prompt": "Write a 2-line rhyming poem about autumn leaves.",
+    "intent": "creative",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-019",
+    "prompt": "Give me three catchy slogan ideas for an eco-friendly water bottle.",
+    "intent": "creative",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-020",
+    "prompt": "Hello! How are you doing today?",
+    "intent": "conversational",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-021",
+    "prompt": "Good evening! Can you help me answer a quick question?",
+    "intent": "conversational",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-022",
+    "prompt": "Hi there! I hope you are having a productive week.",
+    "intent": "conversational",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-023",
+    "prompt": "Which is larger: a megabyte or a gigabyte?",
+    "intent": "reasoning",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-024",
+    "prompt": "If John is older than Mary, and Mary is older than Tom, is John older than Tom?",
+    "intent": "reasoning",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-025",
+    "prompt": "What is the main function of RAM in a personal computer?",
+    "intent": "factual",
+    "expected_complexity": "low"
+  },
+  {
+    "id": "bench-026",
+    "prompt": "Compare the core differences between TCP and UDP networking protocols with one practical example.",
+    "intent": "explanation",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-027",
+    "prompt": "Explain how Garbage Collection works in Java and how it manages heap memory.",
+    "intent": "explanation",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-028",
+    "prompt": "Explain the difference between synchronous and asynchronous execution in Node.js.",
+    "intent": "explanation",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-029",
+    "prompt": "Write a Python function to reverse a singly linked list iteratively and return the new head.",
+    "intent": "coding",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-030",
+    "prompt": "Write an SQL query to find the second highest salary from an Employee table.",
+    "intent": "coding",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-031",
+    "prompt": "Implement binary search recursively in C++ for a sorted vector of integers.",
+    "intent": "coding",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-032",
+    "prompt": "Solve the quadratic equation: 3x^2 - 12x + 9 = 0 using the quadratic formula.",
+    "intent": "mathematics",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-033",
+    "prompt": "Calculate the derivative of f(x) = x^3 * e^(2x) using the product rule.",
+    "intent": "mathematics",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-034",
+    "prompt": "Find the definite integral of (2x + 5) from x = 1 to x = 4.",
+    "intent": "mathematics",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-035",
+    "prompt": "Analyze the trade-offs between monolithic architecture and microservices for a medium-scale startup.",
+    "intent": "reasoning",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-036",
+    "prompt": "Evaluate whether PostgreSQL or MongoDB is better suited for a dynamic e-commerce product catalog.",
+    "intent": "reasoning",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-037",
+    "prompt": "Why does increasing thread count beyond physical CPU core count cause performance degradation?",
+    "intent": "reasoning",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-038",
+    "prompt": "Summarize the key principles of SOLID software design into 5 concise bullet points.",
+    "intent": "summarization",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-039",
+    "prompt": "Summarize the architectural differences between REST APIs and GraphQL in two short paragraphs.",
+    "intent": "summarization",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-040",
+    "prompt": "Translate this technical paragraph into clear business English: 'El servidor HTTP devolvió un error 500 debido a una excepción de puntero nulo en la capa de persistencia de datos.'",
+    "intent": "translation",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-041",
+    "prompt": "Translate this French software description into English: 'Cette application utiliza un sistema de cachés distribués pour réduire la latencia de las consultas.'",
+    "intent": "translation",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-042",
+    "prompt": "Write a short 3-paragraph science fiction scene about a software developer debugging an AI on a space station.",
+    "intent": "creative",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-043",
+    "prompt": "Draft a creative press release announcing the launch of an autonomous delivery drone system.",
+    "intent": "creative",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-044",
+    "prompt": "Hello assistant! Can you guide me on how to approach learning system design for software engineering interviews?",
+    "intent": "conversational",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-045",
+    "prompt": "Greetings! I need help planning a step-by-step refactoring strategy for a legacy codebase. Where should we start?",
+    "intent": "conversational",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-046",
+    "prompt": "Explain the architectural details of how Docker container isolation works using Linux cgroups and namespaces.",
+    "intent": "factual",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-047",
+    "prompt": "What are the structural differences between B-Trees and LSM-Trees in database storage engines?",
+    "intent": "factual",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-048",
+    "prompt": "Explain how HTTP/2 multiplexing improves web performance compared to HTTP/1.1 pipelining.",
+    "intent": "explanation",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-049",
+    "prompt": "Write a Python script using async IO and httpx to download multiple URLs concurrently with rate limiting.",
+    "intent": "coding",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-050",
+    "prompt": "Calculate the expected value and variance of rolling two fair 6-sided dice and taking their sum.",
+    "intent": "mathematics",
+    "expected_complexity": "medium"
+  },
+  {
+    "id": "bench-051",
+    "prompt": "Derive the time complexity of Dijkstra's algorithm using a binary min-heap and explain why it changes compared to an unindexed array implementation.",
+    "intent": "coding",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-052",
+    "prompt": "Implement an LRU Cache data structure in Python with O(1) get and put operations using a doubly linked list and hash map.",
+    "intent": "coding",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-053",
+    "prompt": "Write a multi-threaded C++ program demonstrating thread-safe producer-consumer queue using std::mutex and std::condition_variable.",
+    "intent": "coding",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-054",
+    "prompt": "Derive the closed-form solution for linear regression using matrix calculus and the normal equations (X^T X)^(-1) X^T y.",
+    "intent": "mathematics",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-055",
+    "prompt": "Compute the eigenvalues and eigenvectors of the 3x3 symmetric matrix [[4, 2, 0], [2, 4, 2], [0, 2, 4]] step by step.",
+    "intent": "mathematics",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-056",
+    "prompt": "Calculate the Taylor series expansion of f(x) = ln(1 + x) around x = 0 up to the x^4 term and prove its convergence interval.",
+    "intent": "mathematics",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-057",
+    "prompt": "Analyze how CAP theorem constraints dictate system design choices under network partitions in distributed consensus algorithms like Raft.",
+    "intent": "reasoning",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-058",
+    "prompt": "Compare optimistic locking versus pessimistic locking for high-concurrency inventory reservation systems under heavy write contention.",
+    "intent": "reasoning",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-059",
+    "prompt": "Critique the memory management and cache locality trade-offs between ECS (Entity Component System) and traditional OOP in game engines.",
+    "intent": "reasoning",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-060",
+    "prompt": "Explain how the backpropagation algorithm derives partial derivatives of loss with respect to neural network weights using the chain rule.",
+    "intent": "explanation",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-061",
+    "prompt": "Explain the multi-head self-attention mechanism in Transformer architectures, detailing query, key, value projections and scaling factors.",
+    "intent": "explanation",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-062",
+    "prompt": "Explain how speculative decoding accelerates LLM inference without altering the output probability distribution.",
+    "intent": "explanation",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-063",
+    "prompt": "Summarize a 20-page research paper on Contextual Bandits in LLM routing into technical sections: Problem, Methodology, Regret Bounds, and Conclusions.",
+    "intent": "summarization",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-064",
+    "prompt": "Provide an executive summary of database migration strategies from SQL to NoSQL, covering zero-downtime dual-writing and CDC validation.",
+    "intent": "summarization",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-065",
+    "prompt": "Translate a multi-paragraph German technical specification detailing distributed lock management into precise English computer science terminology.",
+    "intent": "translation",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-066",
+    "prompt": "Translate an advanced Japanese research paper section on quantum error correction codes into rigorous academic English.",
+    "intent": "translation",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-067",
+    "prompt": "Write an engaging, hard sci-fi short story exploring the philosophical implications of a consciousness upload process failing halfway.",
+    "intent": "creative",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-068",
+    "prompt": "Compose a detailed 4-act theater dialogue between Alan Turing and Claude Shannon discussing information entropy and artificial consciousness.",
+    "intent": "creative",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-069",
+    "prompt": "Hello! I am designing a distributed event-driven architecture with Kafka and Flink. Can we discuss stateful stream processing patterns?",
+    "intent": "conversational",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-070",
+    "prompt": "Good day! Let's work together to design a production-grade CI/CD pipeline for deploying multi-region Kubernetes clusters safely.",
+    "intent": "conversational",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-071",
+    "prompt": "What are the exact mechanisms of Cache-Coherency protocols like MESI in multi-core CPU architectures?",
+    "intent": "factual",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-072",
+    "prompt": "Explain the technical details of Meltdown and Spectre hardware vulnerabilities and how kernel page-table isolation mitigates them.",
+    "intent": "factual",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-073",
+    "prompt": "Write a custom Python PyTorch autograd Function for a custom activation function f(x) = x * sigmoid(alpha * x) with explicit backward pass.",
+    "intent": "coding",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-074",
+    "prompt": "Prove that the Halting Problem is undecidable using Cantor's diagonal argument and reduction proof techniques.",
+    "intent": "reasoning",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-075",
+    "prompt": "Derive the Kalman Filter update equations for state estimation under Gaussian process and measurement noise.",
+    "intent": "mathematics",
+    "expected_complexity": "high"
+  },
+  {
+    "id": "bench-076",
+    "prompt": "Design a fault-tolerant distributed LLM serving architecture with dynamic model routing, explain the consistency requirements, failure handling, GPU scheduling strategy, and provide implementation-level pseudocode.",
+    "intent": "reasoning",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-077",
+    "prompt": "Architect an end-to-end multi-tenant LLM orchestration gateway handling 100,000 requests/sec with dynamic rate limiting, token cost accounting, and VRAM-aware GPU cluster load balancing.",
+    "intent": "reasoning",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-078",
+    "prompt": "Design a distributed transaction coordinator implementing 2PC (Two-Phase Commit) and Saga pattern for microservices with compensating transactions and dead-letter queue handling.",
+    "intent": "reasoning",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-079",
+    "prompt": "Write a complete production-grade C++ memory pool allocator implementation with custom chunk alignment, lock-free thread safety using std::atomic, and zero external allocation overhead.",
+    "intent": "coding",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-080",
+    "prompt": "Implement a full B-Tree index data structure in Rust supporting concurrent split/merge operations, disk page serialization, and node searching with full error safety.",
+    "intent": "coding",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-081",
+    "prompt": "Write a Python script that builds a custom Transformer model from scratch using raw PyTorch tensor operations, implementing scaled dot-product attention, multi-head projections, positional encoding, and layer norm.",
+    "intent": "coding",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-082",
+    "prompt": "Derive the theoretical regret bound O(sqrt(d T ln(T))) for the LinUCB Contextual Bandit algorithm under linear payoff assumptions, detailing the Matrix Inversion Lemma proof steps.",
+    "intent": "mathematics",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-083",
+    "prompt": "Solve the second-order non-linear differential equation d^2y/dx^2 + y*(dy/dx)^2 = 0 using variable transformation and boundary conditions y(0)=1, y'(0)=2.",
+    "intent": "mathematics",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-084",
+    "prompt": "Prove the convergence of Stochastic Gradient Descent (SGD) for non-convex loss functions under L-smoothness and bounded variance assumptions.",
+    "intent": "mathematics",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-085",
+    "prompt": "Provide a comprehensive deep-dive explanation of Paxos consensus protocol vs Raft, explaining log matching invariants, leader election split votes, and joint consensus reconfigurations.",
+    "intent": "explanation",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-086",
+    "prompt": "Explain the internal execution flow of the V8 JavaScript Engine from TurboFan JIT compilation and Ignition bytecode execution to concurrent Orinoco garbage collection.",
+    "intent": "explanation",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-087",
+    "prompt": "Detail the mathematical and structural mechanics of Zero-Knowledge Proofs (zk-SNARKs), explaining QAP (Quadratic Arithmetic Programs) and elliptic curve pairing cryptography.",
+    "intent": "explanation",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-088",
+    "prompt": "Synthesize a 50-page technical audit report of a mission-critical distributed database system into an architecture breakdown, vulnerability assessment, and 10-step remediation roadmap.",
+    "intent": "summarization",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-089",
+    "prompt": "Provide a structured technical summary of the Linux kernel memory management system, detailing NUMA nodes, zone allocators, page reclaiming, and SLUB allocator mechanics.",
+    "intent": "summarization",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-090",
+    "prompt": "Translate a multi-page French research treatise on distributed Byzantine Fault Tolerance (PBFT) into publication-ready English with exact formal notation.",
+    "intent": "translation",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-091",
+    "prompt": "Translate a complex Russian academic paper on non-Euclidean differential geometry into rigorous mathematical English.",
+    "intent": "translation",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-092",
+    "prompt": "Write a multi-chapter speculative fiction story exploring a world where human neural implants run local LLM instances that dynamically merge consensus thoughts via mesh network protocols.",
+    "intent": "creative",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-093",
+    "prompt": "Compose a complex multi-character screenplay depicting a high-stakes emergency war room debate between software engineers, security auditors, and AI safety researchers during a rogue model event.",
+    "intent": "creative",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-094",
+    "prompt": "Greetings! I am building a high-frequency algorithmic trading system requiring sub-microsecond execution on FPGA hardware. Let's design the network stack and lock-free queue architecture together.",
+    "intent": "conversational",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-095",
+    "prompt": "Hello! I need to architect a global multi-region database replication engine with active-active write capability and CRDT conflict resolution. Let's step through the system design.",
+    "intent": "conversational",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-096",
+    "prompt": "What are the fundamental limits of quantum computing algorithms compared to classical complexity classes P, NP, and PSPACE?",
+    "intent": "factual",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-097",
+    "prompt": "Explain the exact internal mechanics of Linux epoll vs kqueue event loops under 1,000,000 active concurrent TCP connections.",
+    "intent": "factual",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-098",
+    "prompt": "Write an enterprise-grade C++ template library for Lock-Free SkipList with hazard pointers for memory reclamation under intense concurrent contention.",
+    "intent": "coding",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-099",
+    "prompt": "Prove the NP-completeness of the Traveling Salesperson Problem (TSP) decision variant via polynomial-time reduction from the Hamiltonian Cycle problem.",
+    "intent": "reasoning",
+    "expected_complexity": "very_high"
+  },
+  {
+    "id": "bench-100",
+    "prompt": "Derive the exact loss function and gradient updates for Proximal Policy Optimization (PPO) with clipped surrogate objective and Generalized Advantage Estimation (GAE).",
+    "intent": "mathematics",
+    "expected_complexity": "very_high"
+  }
+]

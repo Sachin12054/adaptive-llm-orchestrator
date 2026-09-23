@@ -58,8 +58,13 @@ class BaselineAdaptivePolicy(BaseDecisionPolicy):
         self, complexity_score: float, model: ModelMetadata
     ) -> float:
         m_id = model.model_id.lower()
-        is_reasoning_model = "deepseek" in m_id or "pro" in m_id or ("reasoning" in model.capabilities and "general_qa" not in model.capabilities)
-        is_lightweight_model = m_id in ["gemma-3-4b", "qwen-coder-3b"] or "flash" in m_id or "fast" in model.display_name.lower()
+        display_lower = model.display_name.lower()
+        is_reasoning_model = "deepseek" in m_id or "pro" in m_id or "70b" in m_id or ("reasoning" in model.capabilities and "general_qa" not in model.capabilities)
+        is_lightweight_model = (
+            m_id in ["gemma-3-4b", "qwen-coder-3b"] or
+            any(kw in m_id for kw in ["flash", "fast", "small", "mini", "haiku", "lite", "turbo"]) or
+            any(kw in display_lower for kw in ["flash", "fast", "small", "mini", "haiku", "lite", "turbo"])
+        )
 
         if complexity_score < 0.35:
             if is_lightweight_model:
@@ -98,7 +103,7 @@ class BaselineAdaptivePolicy(BaseDecisionPolicy):
             system_fit = 0.80
 
         # Online cloud API models do not consume local host GPU VRAM
-        if getattr(model, "execution_mode", "local") == "online" or model.provider != "ollama":
+        if getattr(model, "execution_mode", "local") == "online" or getattr(model, "provider", "ollama") != "ollama":
             return round(system_fit, 4)
 
         # 2. GPU VRAM Fit Evaluation for local Ollama models
@@ -131,6 +136,19 @@ class BaselineAdaptivePolicy(BaseDecisionPolicy):
         else:
             return 0.00
 
+    def _calculate_cost_fit_score(self, model: ModelMetadata) -> float:
+        cost = getattr(model, "input_cost_per_1k", 0.0) or 0.0
+        if cost <= 0.0:
+            return 1.00  # Local hardware / zero token fee candidate
+        elif cost <= 0.00018:
+            return 0.95  # Gemini Flash tier
+        elif cost <= 0.00030:
+            return 0.90  # Mistral Small tier
+        elif cost <= 0.00045:
+            return 0.75  # OpenRouter 70B tier
+        else:
+            return 0.70  # Groq 70B tier
+
     def evaluate_candidates(
         self,
         prompt: str,
@@ -150,11 +168,14 @@ class BaselineAdaptivePolicy(BaseDecisionPolicy):
 
         # Step 1: Filter and score all registered models
         for model in candidate_models:
+            provider_name = getattr(model, "provider", "ollama")
+            display_name = getattr(model, "display_name", model.model_id)
+
             if model.model_type != "llm":
                 breakdowns.append(CandidateScoreBreakdown(
                     model_id=model.model_id,
-                    provider=model.provider,
-                    display_name=model.display_name,
+                    provider=provider_name,
+                    display_name=display_name,
                     eligible=False,
                     ineligible_reason=f"Model type '{model.model_type}' is not an LLM.",
                     candidate_score=0.0
@@ -164,8 +185,8 @@ class BaselineAdaptivePolicy(BaseDecisionPolicy):
             if not model.available or model.configuration_status != "configured":
                 breakdowns.append(CandidateScoreBreakdown(
                     model_id=model.model_id,
-                    provider=model.provider,
-                    display_name=model.display_name,
+                    provider=provider_name,
+                    display_name=display_name,
                     eligible=False,
                     ineligible_reason=f"Model is unconfigured or unavailable ({model.configuration_status}).",
                     candidate_score=0.0
@@ -176,6 +197,7 @@ class BaselineAdaptivePolicy(BaseDecisionPolicy):
             cmplx_score = round(self._calculate_complexity_fit_score(complexity_score, model), 4)
             res_score = round(self._calculate_resource_fit_score(resource_info, model), 4)
             ctx_score = round(self._calculate_context_fit_score(prompt, model), 4)
+            cost_score = round(self._calculate_cost_fit_score(model), 4)
 
             # Mark resource-infeasible models ineligible when severe VRAM deficit is detected
             if res_score == 0.0:
@@ -185,37 +207,40 @@ class BaselineAdaptivePolicy(BaseDecisionPolicy):
 
                 breakdown = CandidateScoreBreakdown(
                     model_id=model.model_id,
-                    provider=model.provider,
-                    display_name=model.display_name,
+                    provider=provider_name,
+                    display_name=display_name,
                     eligible=False,
                     ineligible_reason=inelig_reason,
                     capability_score=cap_score,
                     complexity_fit_score=cmplx_score,
                     resource_fit_score=0.0,
                     context_fit_score=ctx_score,
+                    cost_fit_score=cost_score,
                     candidate_score=0.0
                 )
                 breakdowns.append(breakdown)
                 continue
 
             weighted_score = round(
-                0.35 * cap_score +
-                0.35 * cmplx_score +
+                0.30 * cap_score +
+                0.30 * cmplx_score +
                 0.15 * res_score +
-                0.15 * ctx_score,
+                0.15 * ctx_score +
+                0.10 * cost_score,
                 4
             )
 
             breakdown = CandidateScoreBreakdown(
                 model_id=model.model_id,
-                provider=model.provider,
-                display_name=model.display_name,
+                provider=provider_name,
+                display_name=display_name,
                 eligible=True,
                 ineligible_reason=None,
                 capability_score=cap_score,
                 complexity_fit_score=cmplx_score,
                 resource_fit_score=res_score,
                 context_fit_score=ctx_score,
+                cost_fit_score=cost_score,
                 candidate_score=weighted_score
             )
 
@@ -231,15 +256,38 @@ class BaselineAdaptivePolicy(BaseDecisionPolicy):
             ]
             return None, 0.0, breakdowns, reasoning
 
-        # Select winning candidate
-        winning_model, winning_breakdown = max(eligible_candidates, key=lambda cb: cb[1].candidate_score)
+        # Log Candidate Diagnostics
+        for model, bd in eligible_candidates:
+            logger.info(
+                f"CANDIDATE: model={model.model_id} | provider={bd.provider} | capability={bd.capability_score:.2f} | "
+                f"complexity={bd.complexity_fit_score:.2f} | resource={bd.resource_fit_score:.2f} | "
+                f"context={bd.context_fit_score:.2f} | cost={bd.cost_fit_score:.2f} | availability={model.available} | weighted_score={bd.candidate_score:.4f}"
+            )
+
+        # Log Baseline Ranking
+        logger.info("BASELINE RANKING:")
+        for idx, bd in enumerate(breakdowns, 1):
+            if bd.eligible:
+                logger.info(f"  {idx}. model={bd.model_id} score={bd.candidate_score:.4f}")
+
+        # Select winning candidate via neutral multi-tier tie breaker
+        winning_model, winning_breakdown = max(
+            eligible_candidates,
+            key=lambda cb: (
+                cb[1].candidate_score,
+                cb[1].capability_score,
+                cb[1].cost_fit_score,
+                len(cb[0].capabilities),
+                cb[0].context_length or 0
+            )
+        )
         selected_model_id = winning_model.model_id
         winning_score = winning_breakdown.candidate_score
 
         reasoning = [
             f"Evaluated intent '{intent}' (ambiguous={is_ambiguous}) and prompt complexity '{complexity_level.upper()}' (score={complexity_score:.4f}).",
-            f"Candidate '{winning_model.model_id}' achieved top candidate score ({winning_score:.4f}) based on capabilities, complexity fit, and VRAM resources.",
-            f"Capability match score: {winning_breakdown.capability_score:.2f} | Complexity fit score: {winning_breakdown.complexity_fit_score:.2f} | Resource fit score: {winning_breakdown.resource_fit_score:.2f}.",
+            f"Candidate '{winning_model.model_id}' achieved top candidate score ({winning_score:.4f}) based on capabilities, complexity fit, cost efficiency, and VRAM resources.",
+            f"Capability match score: {winning_breakdown.capability_score:.2f} | Complexity fit score: {winning_breakdown.complexity_fit_score:.2f} | Cost efficiency score: {winning_breakdown.cost_fit_score:.2f} | Resource fit score: {winning_breakdown.resource_fit_score:.2f}.",
             f"Selected model is fully configured and satisfied all resource and context constraints."
         ]
 

@@ -13,24 +13,21 @@ if backend_dir not in sys.path:
     sys.path.insert(0, backend_dir)
 
 from app.schemas.rl import RLTrainRequest, RLTrainResponse
-from app.services.experience_buffer import ExperienceBufferService, ACTION_MAP
+from app.services.experience_buffer import ExperienceBufferService, ACTION_MAP, REVERSE_ACTION_MAP
 
 logger = logging.getLogger("orchestrator")
 
 class PolicyTrainer:
-    def __init__(self, output_path: Optional[str] = None):
+    def __init__(self, output_path: Optional[str] = None, experience_buffer: Optional[ExperienceBufferService] = None):
         raw_path = output_path or os.path.join("data", "rl", "models", "rl_contextual_bandit_policy.json")
         self.output_path = raw_path if os.path.isabs(raw_path) else os.path.join(project_root, raw_path)
+        self.experience_buffer = experience_buffer
         self.action_map = ACTION_MAP
-        self.reverse_action_map = {
-            0: "gemma-3-4b",
-            1: "qwen-coder-3b",
-            2: "deepseek-r1-7b"
-        }
-        self.num_actions = 3
+        self.reverse_action_map = REVERSE_ACTION_MAP
+        self.num_actions = len(ACTION_MAP)
 
     def train_policy(self, request: RLTrainRequest) -> RLTrainResponse:
-        buffer_service = ExperienceBufferService()
+        buffer_service = self.experience_buffer or ExperienceBufferService()
         experiences = buffer_service._buffer
 
         samples_count = len(experiences)
@@ -114,7 +111,7 @@ class PolicyTrainer:
         # Serialize policy file to disk
         policy_data = {
             "policy_name": "rl_contextual_bandit_policy",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "state_dim": D,
             "action_map": self.action_map,
             "weights": weights.tolist(),

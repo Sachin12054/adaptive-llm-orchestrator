@@ -23,7 +23,7 @@ class RLStatusResponse(BaseModel):
     last_trained_timestamp: Optional[float] = Field(None, description="Timestamp of last policy training run")
 
 class RLTrainRequest(BaseModel):
-    minimum_samples: int = Field(100, ge=10, description="Minimum number of Step 20 experiences required for training")
+    minimum_samples: int = Field(10, ge=1, description="Minimum number of Step 20 experiences required for training")
     learning_rate: float = Field(0.01, gt=0.0, description="Gradient descent learning rate for linear weights")
     epochs: int = Field(50, ge=1, description="Number of training epochs over stored experiences")
     l2_lambda: float = Field(0.01, ge=0.0, description="L2 regularization parameter")

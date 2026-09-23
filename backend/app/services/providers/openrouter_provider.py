@@ -14,6 +14,8 @@ from app.schemas.provider import (
     TokenUsage
 )
 
+from app.services.cost_calculator import CostCalculator
+
 logger = logging.getLogger("orchestrator")
 
 class OpenRouterProvider(BaseLLMProvider):
@@ -110,6 +112,7 @@ class OpenRouterProvider(BaseLLMProvider):
                 total_tokens=usage_raw.get("total_tokens")
             )
 
+            cost_info = CostCalculator.calculate_cost("OpenRouter API", target_model, usage, "online")
             logger.info(f"OpenRouter API call completed in {latency_ms} ms.")
             return ProviderGenerationResponse(
                 provider="OpenRouter API",
@@ -117,6 +120,9 @@ class OpenRouterProvider(BaseLLMProvider):
                 generated_text=generated_text,
                 finish_reason=choices[0].get("finish_reason", "STOP") if choices else "STOP",
                 usage=usage,
+                cost=cost_info["cost"],
+                cost_currency=cost_info["cost_currency"],
+                cost_source=cost_info["cost_source"],
                 latency_ms=latency_ms,
                 success=True if generated_text else False,
                 error_message=None if generated_text else "OpenRouter API returned empty text"

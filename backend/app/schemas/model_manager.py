@@ -24,6 +24,11 @@ class ModelExecutionResponse(BaseModel):
     execution_status: str = Field(..., description="Status: completed, failed, unsupported_model, not_configured")
     error_message: Optional[str] = Field(None, description="Error details if execution failed")
 
+    # Cost Telemetry Fields
+    cost: float = Field(0.0, description="Calculated monetary API execution cost in USD")
+    cost_currency: str = Field("USD", description="Currency code (default USD)")
+    cost_source: str = Field("zero_local", description="Source: zero_local, configured_pricing_estimate, provider_reported, unknown")
+
 class ModelManagerStatusResponse(BaseModel):
     status: str = Field(..., description="Manager operational status: ready, partially_configured, unconfigured")
     registered_models_count: int = Field(..., description="Total count of models in ModelRegistry")

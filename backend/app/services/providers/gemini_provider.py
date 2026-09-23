@@ -11,6 +11,7 @@ from app.schemas.provider import (
     ProviderStatusResponse,
     TokenUsage
 )
+from app.services.cost_calculator import CostCalculator
 
 logger = logging.getLogger("orchestrator")
 
@@ -149,10 +150,11 @@ class GeminiProvider(BaseLLMProvider):
                         total_tokens=getattr(um, "total_token_count", None)
                     )
 
+                cost_info = CostCalculator.calculate_cost("Google Gemini API", request.model_id, usage, "online")
                 logger.info(
                     f"[ONLINE DEBUG] model_id={request.model_id} | provider=Google Gemini API | "
                     f"request_completed=True | success={is_success} | latency_ms={latency_ms} | "
-                    f"generated_text_length={len(generated_text) if generated_text else 0}"
+                    f"generated_text_length={len(generated_text) if generated_text else 0} | cost={cost_info['cost']}"
                 )
                 return ProviderGenerationResponse(
                     provider="Google Gemini API",
@@ -160,6 +162,9 @@ class GeminiProvider(BaseLLMProvider):
                     generated_text=generated_text if is_success else None,
                     finish_reason="STOP" if is_success else "FAILED",
                     usage=usage,
+                    cost=cost_info["cost"],
+                    cost_currency=cost_info["cost_currency"],
+                    cost_source=cost_info["cost_source"],
                     latency_ms=latency_ms,
                     success=is_success,
                     error_message=None if is_success else "Gemini API returned empty response text."
@@ -190,6 +195,8 @@ class GeminiProvider(BaseLLMProvider):
                 generated_text = getattr(response, "text", None)
                 is_success = bool(generated_text and generated_text.strip())
 
+                cost_info = CostCalculator.calculate_cost("Google Gemini API", request.model_id, None, "online")
+
                 logger.info(
                     f"[ONLINE DEBUG] model_id={request.model_id} | provider=Google Gemini API | "
                     f"legacy_sdk=True | success={is_success} | latency_ms={latency_ms} | "
@@ -201,6 +208,9 @@ class GeminiProvider(BaseLLMProvider):
                     generated_text=generated_text if is_success else None,
                     finish_reason="STOP" if is_success else "FAILED",
                     usage=None,
+                    cost=cost_info["cost"],
+                    cost_currency=cost_info["cost_currency"],
+                    cost_source=cost_info["cost_source"],
                     latency_ms=latency_ms,
                     success=is_success,
                     error_message=None if is_success else "Gemini API returned empty response text."

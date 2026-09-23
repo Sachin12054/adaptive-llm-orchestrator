@@ -16,6 +16,8 @@ client = TestClient(app)
 @pytest.fixture
 def mock_sentence_transformer():
     """Mocks SentenceTransformer to avoid network model downloads during automated tests."""
+    EmbeddingService._shared_model = None
+    EmbeddingService._shared_dimension = None
     with patch("sentence_transformers.SentenceTransformer") as mock_cls:
         mock_model_instance = MagicMock()
         # Mock 1024-dimensional embedding vector
@@ -24,6 +26,8 @@ def mock_sentence_transformer():
         mock_model_instance.get_embedding_dimension.return_value = 1024
         mock_cls.return_value = mock_model_instance
         yield mock_cls
+    EmbeddingService._shared_model = None
+    EmbeddingService._shared_dimension = None
 
 def test_service_initialization_singleton():
     service1 = EmbeddingService()
@@ -48,9 +52,7 @@ def test_empty_text_validation():
         service.generate_embedding("")
 
 def test_embedding_generation_mocked(mock_sentence_transformer):
-    # Reset singleton state for test isolation if needed
     service = EmbeddingService()
-    service.model = None  # Force reload with mock
     
     result = service.generate_embedding("What is the capital of France?", include_vector=False)
     assert result.model == settings.EMBEDDING_MODEL
@@ -61,7 +63,6 @@ def test_embedding_generation_mocked(mock_sentence_transformer):
 
 def test_embedding_include_vector(mock_sentence_transformer):
     service = EmbeddingService()
-    service.model = None
     
     result = service.generate_embedding("Hello world", include_vector=True)
     assert result.embedding is not None
@@ -69,7 +70,6 @@ def test_embedding_include_vector(mock_sentence_transformer):
 
 def test_api_embedding_generate_valid(mock_sentence_transformer):
     service = EmbeddingService()
-    service.model = None
 
     payload = {"text": "What is the capital of France?", "include_vector": False}
     response = client.post("/api/embedding/generate", json=payload)

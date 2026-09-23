@@ -14,6 +14,7 @@ from app.schemas.provider import (
     ProviderStatusResponse,
     TokenUsage
 )
+from app.services.cost_calculator import CostCalculator
 
 logger = logging.getLogger("orchestrator")
 
@@ -111,7 +112,7 @@ class OllamaProvider(BaseLLMProvider):
                 method="POST"
             )
 
-            with urllib.request.urlopen(req, timeout=120.0) as resp:
+            with urllib.request.urlopen(req, timeout=300.0) as resp:
                 t1 = time.perf_counter()
                 latency_ms = round((t1 - t0) * 1000, 2)
 
@@ -179,12 +180,16 @@ class OllamaProvider(BaseLLMProvider):
                     f"Speed: {tokens_per_sec} tokens/sec | Execution: {gpu_status}"
                 )
 
+                cost_info = CostCalculator.calculate_cost("ollama", request.model_id, usage, "local")
                 return ProviderGenerationResponse(
                     provider="ollama",
                     model_id=request.model_id,
                     generated_text=generated_text,
                     finish_reason="STOP",
                     usage=usage,
+                    cost=cost_info["cost"],
+                    cost_currency=cost_info["cost_currency"],
+                    cost_source=cost_info["cost_source"],
                     latency_ms=latency_ms,
                     ollama_load_ms=load_ms,
                     ollama_prompt_eval_ms=prompt_eval_ms,

@@ -1,0 +1,16 @@
+{
+  "benchmark_version": "v1.0.0",
+  "dataset_count": 113,
+  "random_seed": 42,
+  "default_execution_mode": "online",
+  "supported_execution_modes": ["local", "online"],
+  "attempt_timeout_seconds": 60,
+  "max_concurrency_local": 3,
+  "max_concurrency_cloud": 4,
+  "safety_invariants": {
+    "baseline_sole_production_authority": true,
+    "production_override": false,
+    "rl_shadow_mode_only": true,
+    "mask_bge_m3": true
+  }
+}

@@ -25,6 +25,11 @@ class ProviderGenerationResponse(BaseModel):
     ollama_eval_ms: Optional[float] = Field(None, description="Ollama token generation duration in milliseconds")
     success: bool = Field(..., description="True if text generation completed successfully")
     error_message: Optional[str] = Field(None, description="Error details if generation request failed")
+    
+    # Cost Accounting Fields
+    cost: float = Field(0.0, description="Calculated monetary API execution cost in USD")
+    cost_currency: str = Field("USD", description="Currency code (default USD)")
+    cost_source: str = Field("zero_local", description="Source of cost calculation: zero_local, configured_pricing_estimate, provider_reported, unknown")
 
 class ProviderStatusResponse(BaseModel):
     provider: str = Field("ollama", description="Provider vendor name")

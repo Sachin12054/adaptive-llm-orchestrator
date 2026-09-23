@@ -42,7 +42,7 @@ def test_reward_formula_is_correct():
     service = RewardSignal()
     req = RewardComputeRequest(
         prompt="What is the capital of France?",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         winning_score=0.82,
         execution_success=True,
         execution_status="completed",
@@ -72,7 +72,7 @@ def test_reward_is_clamped_to_zero_one():
     # High score inputs
     req_max = RewardComputeRequest(
         prompt="Test prompt",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         execution_success=True,
         execution_status="completed",
         generated_text="Valid long response text for testing clamping",
@@ -90,7 +90,7 @@ def test_reward_is_clamped_to_zero_one():
     # Low score inputs
     req_min = RewardComputeRequest(
         prompt="Test prompt",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         execution_success=False,
         execution_status="failed",
         generated_text=None,
@@ -130,7 +130,7 @@ def test_failed_execution():
     service = RewardSignal()
     req = RewardComputeRequest(
         prompt="What is the capital of France?",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         execution_success=False,
         execution_status="failed",
         generated_text=None,
@@ -151,7 +151,7 @@ def test_not_configured_execution():
     service = RewardSignal()
     req = RewardComputeRequest(
         prompt="What is the capital of France?",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         execution_success=False,
         execution_status="not_configured",
         generated_text=None,
@@ -171,7 +171,7 @@ def test_not_verifiable_response():
     service = RewardSignal()
     req = RewardComputeRequest(
         prompt="What is the capital of France?",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         execution_success=True,
         execution_status="completed",
         generated_text="   ",
@@ -191,7 +191,7 @@ def test_factual_verification_not_assumed():
     service = RewardSignal()
     req = RewardComputeRequest(
         prompt="What is the capital of France?",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         execution_success=True,
         execution_status="completed",
         generated_text="Paris",
@@ -211,7 +211,7 @@ def test_empty_prompt_rejection():
     service = RewardSignal()
     req = RewardComputeRequest(
         prompt="   ",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         execution_success=True,
         execution_status="completed",
         generated_text="Paris",
@@ -237,7 +237,7 @@ def test_api_reward_status_endpoint():
 def test_api_reward_compute_endpoint():
     payload = {
         "prompt": "What is the capital of France?",
-        "selected_model": "gemini-2.5-flash",
+        "selected_model": "gemini-3.5-flash",
         "winning_score": 0.82,
         "execution_success": True,
         "execution_status": "completed",
@@ -256,7 +256,7 @@ def test_api_reward_compute_endpoint():
 
     assert data["success"] is True
     assert data["reward"] == pytest.approx(0.7550)
-    assert data["selected_model"] == "gemini-2.5-flash"
+    assert data["selected_model"] == "gemini-3.5-flash"
     assert "reward_breakdown" in data
     assert data["reward_breakdown"]["quality"]["contribution"] == pytest.approx(0.30)
     assert data["reward_breakdown"]["completeness"]["contribution"] == pytest.approx(0.08)

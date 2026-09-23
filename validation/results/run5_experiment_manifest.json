@@ -1,0 +1,29 @@
+{
+  "experiment_id": "RUN_5_RL_SCIENTIFIC_EVALUATION",
+  "timestamp_utc": "2026-09-19T07:35:37.523491Z",
+  "git_commit_hash": "unavailable",
+  "training_dataset_hash": "f3fa9076d22a613913f8e9b83fa343c2e14482153004ec7b7f6921be42c0f939",
+  "test_dataset_hash": "a9a96f80dc36c1031714adc8d95802c5210ea490e534dbf0f123ecda56b276e0",
+  "policy_artifact_path": "C:\\Users\\sachi\\Desktop\\Amrita\\Sem-7\\RL\\Project\\adaptive-llm-orchestrator\\validation\\results\\run5\\run5_trained_policy.json",
+  "policy_artifact_hash_sha256": "580287c43b0de7bd97b46046eb010ec99d960f04e1a769299c21e3d5978446da",
+  "production_artifact_path": "C:\\Users\\sachi\\Desktop\\Amrita\\Sem-7\\RL\\Project\\adaptive-llm-orchestrator\\data\\rl\\models\\rl_contextual_bandit_policy.json",
+  "production_artifact_hash_sha256": "41f94abcc27299b33b89b36845ccb21aff69b60dc93365043361c45d9d164de7",
+  "policy_version": "2.0.0",
+  "K_actions": 8,
+  "D_state_dim": 12,
+  "training_config": {
+    "algorithm": "Linear Contextual Bandit (Regularized GD)",
+    "epochs": 100,
+    "learning_rate": 0.01,
+    "l2_lambda": 0.01,
+    "random_seed": 42
+  },
+  "test_config": {
+    "dataset": "data/evaluation/propensity_benchmark_100.jsonl",
+    "n_records": 100,
+    "evaluation_mode": "off_policy_ips"
+  },
+  "production_policy": "rl",
+  "fallback_policy": "baseline_adaptive_policy",
+  "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]"
+}

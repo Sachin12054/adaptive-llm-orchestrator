@@ -1,0 +1,23 @@
+{
+  "strategy_id": "E",
+  "strategy_name": "E",
+  "sample_count": 113,
+  "quality_mean_0_to_5": 1.49,
+  "quality_95_ci": [
+    1.1281,
+    1.8888
+  ],
+  "latency_mean_ms": 2903.19,
+  "latency_p50_ms": 101.05,
+  "latency_p95_ms": 12047.15,
+  "latency_std_ms": 4748.72,
+  "latency_95_ci": [
+    2039.5433,
+    3797.9954
+  ],
+  "total_cost_usd": 0.01,
+  "average_cost_usd": 8.9e-05,
+  "success_rate": 0.3451,
+  "failover_rate": 0.0,
+  "status": "PRIMARY_CONTROLLED_MEASURED"
+}

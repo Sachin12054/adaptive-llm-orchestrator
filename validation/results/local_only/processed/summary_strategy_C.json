@@ -1,0 +1,24 @@
+{
+  "strategy_id": "C",
+  "strategy_name": "C",
+  "models_used": "deepseek-r1-7b",
+  "sample_count": 113,
+  "quality_mean_0_to_5": 4.62,
+  "quality_95_ci": [
+    4.5504,
+    4.6783
+  ],
+  "latency_mean_ms": 65782.28,
+  "latency_p50_ms": 68884.8,
+  "latency_p95_ms": 69640.85,
+  "latency_std_ms": 10690.21,
+  "latency_95_ci": [
+    63613.6957,
+    67548.443
+  ],
+  "total_cost_usd": 0.0,
+  "average_cost_usd": 0.0,
+  "success_rate_pct": 1.0,
+  "failover_rate_pct": 0.0,
+  "status": "LOCAL_ONLY_MEASURED"
+}

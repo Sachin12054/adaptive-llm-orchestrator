@@ -159,7 +159,9 @@ const WorkflowVisualizer = ({
           id: st.task_id || `TASK-${idx + 1}`,
           title: st.task_id || `Task ${idx + 1}`,
           sub: st.description || st.category || 'Subtask Objective',
-          model: st.assigned_model || 'qwen-coder-3b',
+          model: st.assigned_model || 'Model not recorded',
+          actualModel: st.execution_success ? (st.actual_model || st.assigned_model || null) : null,
+          actualProvider: st.execution_success ? (st.actual_provider || st.provider || null) : null,
           category: st.category || 'general',
           theme
         };
@@ -180,7 +182,9 @@ const WorkflowVisualizer = ({
             id: st.task_id || `TASK-${idx + 1}`,
             title: st.task_id || `Task ${idx + 1}`,
             sub: st.description || st.category || 'Subtask Objective',
-            model: st.assigned_model || 'qwen-coder-3b',
+            model: st.assigned_model || 'Model not recorded',
+            actualModel: st.execution_success ? (st.actual_model || st.assigned_model || null) : null,
+            actualProvider: st.execution_success ? (st.actual_provider || st.provider || null) : null,
             category: st.category || 'general',
             theme
           };
@@ -301,6 +305,8 @@ const WorkflowVisualizer = ({
           title: st.title,
           sub: st.sub,
           model: st.model,
+          actualModel: st.actualModel,
+          actualProvider: st.actualProvider,
           isSubtask: true,
           theme: st.theme,
           x,
@@ -618,7 +624,8 @@ const WorkflowVisualizer = ({
                       {node.sub}
                     </div>
                     <div className="flex justify-between items-center text-[8px] text-slate-400 border-t border-slate-800/80 pt-1">
-                      <span>Assigned: <span className="text-cyan-400 font-bold">{node.model}</span></span>
+                      <span>Executed: <span className="text-cyan-400 font-bold">{node.actualModel || node.model}</span></span>
+                      {node.actualProvider && <span className="text-emerald-300 truncate max-w-[90px]">{node.actualProvider}</span>}
                       {node.level && <span>Level {node.level}</span>}
                     </div>
                   </div>

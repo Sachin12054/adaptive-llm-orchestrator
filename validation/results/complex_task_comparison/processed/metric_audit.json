@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "experiment": "RUN_3_COMPLEX_TASK_COMPARISON",
+    "audit_title": "Mathematical and Terminology Scientific Audit",
+    "sample_size_n": 18,
+    "total_executions": 36,
+    "execution_environment": "Local Ollama (CPU 16 threads)",
+    "execution_success_rate_pct": 100.0,
+    "no_rerun_compliance": true
+  },
+  "quality_and_coverage": {
+    "quality_single_mean": 4.3744,
+    "quality_single_ci95": [
+      4.05,
+      4.69
+    ],
+    "quality_orchestrated_mean": 4.2506,
+    "quality_orchestrated_ci95": [
+      3.93,
+      4.57
+    ],
+    "quality_difference": -0.1239,
+    "quality_ttest_p_value": 0.45830513202376066,
+    "quality_wilcoxon_p_value": 0.3793539434940021,
+    "quality_cohens_d": -0.1789,
+    "quality_statistically_significant": false,
+    "coverage_single_pct": 89.02,
+    "coverage_orchestrated_pct": 85.02,
+    "coverage_difference_pct": -3.99,
+    "coverage_ttest_p_value": 0.32774841896902673,
+    "coverage_wilcoxon_p_value": 0.23672357063785732,
+    "coverage_statistically_significant": false
+  },
+  "latency_audit": {
+    "single_model_e2e_mean_s": 115.68,
+    "single_model_e2e_median_s": 118.5,
+    "single_model_e2e_p95_s": 130.29,
+    "orchestrated_e2e_mean_s": 199.34,
+    "orchestrated_e2e_median_s": 200.84,
+    "orchestrated_e2e_p95_s": 416.84,
+    "e2e_latency_difference_s": 83.66,
+    "e2e_latency_increase_pct": 72.32,
+    "ttest_p_value": 0.05954426564141059,
+    "wilcoxon_p_value": 0.06653594970703125,
+    "latency_breakdown": {
+      "decomposition_mean_s": 1.25,
+      "subtask_parallel_wall_clock_mean_s": 80.03,
+      "subtask_sequential_equivalent_mean_s": 290.56,
+      "final_synthesis_mean_s": 118.06,
+      "synthesis_share_of_e2e_pct": 59.2
+    }
+  },
+  "parallelization_audit": {
+    "sequential_subtask_time_s": 562.14,
+    "parallel_wall_clock_time_s": 199.34,
+    "measured_parallel_speedup_x": 2.82,
+    "mean_max_concurrency": 3.17,
+    "conventional_parallel_efficiency": 0.8896,
+    "conventional_parallel_efficiency_pct": 88.96,
+    "previous_reported_non_standard_efficiency": 1.23,
+    "correction_reason": "Conventional parallel efficiency is defined as Speedup / Max_Concurrency = 2.82 / 3.17 = 0.89 (89.0%). The non-standard metric reported previously (1.23) exceeded 1.0 and was mathematically invalid as a efficiency measure."
+  },
+  "end_to_end_quality_efficiency_audit": {
+    "single_model_quality_per_sec": 0.0378,
+    "orchestrated_quality_per_sec": 0.0213,
+    "quality_per_sec_pct_change": -43.61,
+    "previous_reported_orchestrated_qps": 0.1046,
+    "correction_reason": "The previous value of 0.1046 was calculated using subtask phase wall-clock time rather than total end-to-end wall-clock latency. Incorporating full end-to-end latency (199.34s), orchestrated quality per second is 0.0213 (a 43.7% reduction compared to 0.0378 for single model)."
+  },
+  "throughput_and_terminology_audit": {
+    "single_model_generation_speed_tok_s": 8.66,
+    "aggregate_subtask_generation_throughput_tok_s": 28.45,
+    "throughput_ratio_x": 3.29,
+    "terminology_rule": "28.45 tok/s (3.28x) is aggregate subtask token generation throughput across parallel worker threads. It MUST NOT be called end-to-end generation speedup or quality-per-second improvement, as total end-to-end latency is 72.3% slower on local CPU."
+  }
+}

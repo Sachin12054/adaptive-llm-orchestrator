@@ -58,6 +58,9 @@ class ResponseGenerator:
             ollama_prompt_eval_ms=getattr(exec_response, "ollama_prompt_eval_ms", None),
             ollama_eval_ms=getattr(exec_response, "ollama_eval_ms", None),
             usage=exec_response.usage,
+            cost=getattr(exec_response, "cost", 0.0),
+            cost_currency=getattr(exec_response, "cost_currency", "USD"),
+            cost_source=getattr(exec_response, "cost_source", "zero_local"),
             execution_status=exec_response.execution_status,
             error_message=exec_response.error_message
         )

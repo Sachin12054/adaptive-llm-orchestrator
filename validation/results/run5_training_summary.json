@@ -1,0 +1,41 @@
+{
+  "algorithm": "Linear Contextual Bandit with L2-Regularized Gradient Descent",
+  "K_actions": 8,
+  "D_state_dim": 12,
+  "training_samples": 14,
+  "valid_samples": 14,
+  "update_count": 1400,
+  "epochs": 100,
+  "learning_rate": 0.01,
+  "l2_lambda": 0.01,
+  "random_seed": 42,
+  "training_duration_s": 0.0077,
+  "final_mse": 0.0119,
+  "policy_version": "2.0.0",
+  "artifact_path": "C:\\Users\\sachi\\Desktop\\Amrita\\Sem-7\\RL\\Project\\adaptive-llm-orchestrator\\validation\\results\\run5\\run5_trained_policy.json",
+  "artifact_hash_sha256": "580287c43b0de7bd97b46046eb010ec99d960f04e1a769299c21e3d5978446da",
+  "buffer_audit": {
+    "total_records": 22,
+    "duplicates": 0,
+    "valid_records": 21,
+    "invalid_records": 1,
+    "missing_state": 0,
+    "missing_action": 0,
+    "missing_reward": 0,
+    "missing_cost": 0,
+    "missing_latency": 0,
+    "missing_quality": 22,
+    "success_count": 21,
+    "failure_count": 0,
+    "action_counts": {
+      "qwen-coder-3b": 1,
+      "gemma-3-4b": 20
+    },
+    "provider_counts": {
+      "ollama": 11,
+      "test": 8,
+      "Multi-LLM Parallel Execution Engine": 2
+    }
+  },
+  "split_method": "temporal_chronological"
+}

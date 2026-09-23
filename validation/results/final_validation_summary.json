@@ -1,0 +1,174 @@
+[
+  {
+    "strategy_id": "A",
+    "strategy_name": "A",
+    "sample_count": 113,
+    "quality_mean_0_to_5": 4.58,
+    "quality_95_ci": [
+      4.5147,
+      4.6346
+    ],
+    "latency_mean_ms": 21554.55,
+    "latency_p50_ms": 23700.77,
+    "latency_p95_ms": 25022.06,
+    "latency_std_ms": 5866.26,
+    "latency_95_ci": [
+      20430.9469,
+      22604.6243
+    ],
+    "total_cost_usd": 0.0322,
+    "average_cost_usd": 0.000285,
+    "success_rate": 1.0,
+    "failover_rate": 0.0,
+    "status": "PRIMARY_CONTROLLED_MEASURED"
+  },
+  {
+    "strategy_id": "B",
+    "strategy_name": "B",
+    "sample_count": 113,
+    "quality_mean_0_to_5": 4.22,
+    "quality_95_ci": [
+      4.1211,
+      4.3165
+    ],
+    "latency_mean_ms": 5488.9,
+    "latency_p50_ms": 2909.87,
+    "latency_p95_ms": 10697.16,
+    "latency_std_ms": 3514.67,
+    "latency_95_ci": [
+      4867.0894,
+      6163.8414
+    ],
+    "total_cost_usd": 0.0162,
+    "average_cost_usd": 0.000143,
+    "success_rate": 1.0,
+    "failover_rate": 0.0,
+    "status": "PRIMARY_CONTROLLED_MEASURED"
+  },
+  {
+    "strategy_id": "C",
+    "strategy_name": "C",
+    "sample_count": 113,
+    "quality_mean_0_to_5": 4.57,
+    "quality_95_ci": [
+      4.4958,
+      4.6457
+    ],
+    "latency_mean_ms": 71853.61,
+    "latency_p50_ms": 74411.03,
+    "latency_p95_ms": 77500.78,
+    "latency_std_ms": 11707.0,
+    "latency_95_ci": [
+      69556.2912,
+      73840.5201
+    ],
+    "total_cost_usd": 0.0329,
+    "average_cost_usd": 0.000291,
+    "success_rate": 1.0,
+    "failover_rate": 0.0,
+    "status": "PRIMARY_CONTROLLED_MEASURED"
+  },
+  {
+    "strategy_id": "D",
+    "strategy_name": "D",
+    "sample_count": 113,
+    "quality_mean_0_to_5": 1.38,
+    "quality_95_ci": [
+      1.0134,
+      1.7628
+    ],
+    "latency_mean_ms": 3537.55,
+    "latency_p50_ms": 76.3,
+    "latency_p95_ms": 16716.47,
+    "latency_std_ms": 6907.99,
+    "latency_95_ci": [
+      2308.5427,
+      4957.9848
+    ],
+    "total_cost_usd": 0.0088,
+    "average_cost_usd": 7.8e-05,
+    "success_rate": 0.3186,
+    "failover_rate": 0.0,
+    "status": "PRIMARY_CONTROLLED_MEASURED"
+  },
+  {
+    "strategy_id": "E",
+    "strategy_name": "E",
+    "sample_count": 113,
+    "quality_mean_0_to_5": 1.49,
+    "quality_95_ci": [
+      1.1281,
+      1.8888
+    ],
+    "latency_mean_ms": 2903.19,
+    "latency_p50_ms": 101.05,
+    "latency_p95_ms": 12047.15,
+    "latency_std_ms": 4748.72,
+    "latency_95_ci": [
+      2039.5433,
+      3797.9954
+    ],
+    "total_cost_usd": 0.01,
+    "average_cost_usd": 8.9e-05,
+    "success_rate": 0.3451,
+    "failover_rate": 0.0,
+    "status": "PRIMARY_CONTROLLED_MEASURED"
+  },
+  {
+    "strategy_id": "F",
+    "strategy_name": "F",
+    "sample_count": 113,
+    "quality_mean_0_to_5": 1.41,
+    "quality_95_ci": [
+      1.0031,
+      1.8043
+    ],
+    "latency_mean_ms": 4730.98,
+    "latency_p50_ms": 1177.53,
+    "latency_p95_ms": 21839.84,
+    "latency_std_ms": 8466.41,
+    "latency_95_ci": [
+      3308.8583,
+      6405.0892
+    ],
+    "total_cost_usd": 0.013,
+    "average_cost_usd": 0.000115,
+    "success_rate": 0.3009,
+    "failover_rate": 0.0,
+    "status": "PRIMARY_CONTROLLED_MEASURED"
+  },
+  {
+    "strategy_id": "G",
+    "strategy_name": "G",
+    "sample_count": 113,
+    "quality_mean_0_to_5": 0.51,
+    "quality_95_ci": [
+      0.2794,
+      0.7831
+    ],
+    "latency_mean_ms": 3719.95,
+    "latency_p50_ms": 1517.25,
+    "latency_p95_ms": 13274.87,
+    "latency_std_ms": 7971.13,
+    "latency_95_ci": [
+      2514.6522,
+      5300.5239
+    ],
+    "total_cost_usd": 0.0059,
+    "average_cost_usd": 5.3e-05,
+    "success_rate": 0.115,
+    "failover_rate": 0.0,
+    "status": "PRIMARY_CONTROLLED_MEASURED"
+  },
+  {
+    "strategy_id": "H",
+    "strategy_name": "RL Contextual Bandit Policy (Shadow)",
+    "sample_count": 291,
+    "estimated_ips_policy_value": 1.1421,
+    "estimated_snips_policy_value": 0.9437,
+    "effective_sample_size_ess": 19.66,
+    "policy_agreement_rate": 0.6082,
+    "positivity_coverage": 0.3642,
+    "status": "OFFLINE_SHADOW_ESTIMATE_ONLY"
+  }
+]

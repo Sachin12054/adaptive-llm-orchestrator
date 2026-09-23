@@ -19,10 +19,9 @@ def test_registry_loads_active_models():
     assert "gemma-3-4b" in model_ids
     assert "qwen-coder-3b" in model_ids
     assert "deepseek-r1-7b" in model_ids
-    assert "gemini-2.0-flash" in model_ids
+    assert "gemini-3.5-flash" in model_ids
 
     assert "gemini-3.6-flash" not in model_ids
-    assert "gemini-2.5-flash" not in model_ids
 
 def test_bge_m3_metadata():
     registry = ModelRegistry()

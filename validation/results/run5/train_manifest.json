@@ -1,0 +1,26 @@
+{
+  "source": "data/rl/experience_buffer.jsonl",
+  "split_method": "temporal_chronological",
+  "record_count": 14,
+  "sha256_id_hash": "f3fa9076d22a613913f8e9b83fa343c2e14482153004ec7b7f6921be42c0f939",
+  "experience_ids": [
+    "exp-383255e1",
+    "exp-453a12b6",
+    "exp-e635d3e0",
+    "exp-ce3feb3c",
+    "exp-c412be16",
+    "exp-bec8a80f",
+    "exp-7dc1fcc7",
+    "exp-41081017",
+    "exp-b050819f",
+    "exp-ae5c0a7d",
+    "exp-44846631",
+    "exp-275afbf2",
+    "exp-1ac1cdc9",
+    "exp-ec7ee60b"
+  ],
+  "timestamp_range": {
+    "earliest": 1789803061.3471158,
+    "latest": 1789803229.056686
+  }
+}

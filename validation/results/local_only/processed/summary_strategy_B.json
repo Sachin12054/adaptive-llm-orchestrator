@@ -1,0 +1,24 @@
+{
+  "strategy_id": "B",
+  "strategy_name": "B",
+  "models_used": "qwen-coder-3b",
+  "sample_count": 113,
+  "quality_mean_0_to_5": 4.24,
+  "quality_95_ci": [
+    4.1403,
+    4.3381
+  ],
+  "latency_mean_ms": 5497.6,
+  "latency_p50_ms": 2963.11,
+  "latency_p95_ms": 10733.97,
+  "latency_std_ms": 3613.58,
+  "latency_95_ci": [
+    4857.6752,
+    6142.1421
+  ],
+  "total_cost_usd": 0.0,
+  "average_cost_usd": 0.0,
+  "success_rate_pct": 1.0,
+  "failover_rate_pct": 0.0,
+  "status": "LOCAL_ONLY_MEASURED"
+}

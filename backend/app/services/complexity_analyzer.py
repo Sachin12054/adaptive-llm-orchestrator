@@ -12,6 +12,25 @@ from app.services.complexity_prototype_service import ComplexityPrototypeService
 logger = logging.getLogger("orchestrator")
 
 class ComplexityAnalyzer:
+    """
+    Multi-Factor Prompt Complexity Analyzer.
+    
+    Computes a transparent 5-dimensional complexity score S in [0.0, 1.0]:
+    S = w_semantic * C_semantic + w_reasoning * C_reasoning + w_task * C_task + w_context * C_context + w_output * C_output
+
+    Mathematical Improvements & Scaling Calibration:
+    1. Semantic Complexity: Replaced unnormalized additive prototype summation with temperature-scaled Softmax
+       normalization over BGE-M3 prototype cosine similarities.
+       Probabilities: P = Softmax(beta * (s - max(s))), where beta = 10.0.
+       Score: C_semantic = sum(P_k * L_k), L = [0.10, 0.40, 0.70, 1.00].
+       Reasoning: Prevents baseline floor saturation (where s_k ~ 0.50 produced sem_score > 1.0 for all queries).
+    2. Context Complexity: Replaced linear scaling (words / 250.0) with non-linear exponential saturation curve:
+       words_norm = 1.0 - exp(-word_count / 60.0).
+       Reasoning: Prevents severe score suppression for typical 15-40 word technical prompts.
+    3. Task Complexity: Multi-factor operational feature extraction incorporating action verbs, technical conjunctions,
+       domain artifact terms, and syntactic clause counts.
+       Reasoning: Ensures technically complex single-sentence prompts are not penalized with task_complexity = 0.0.
+    """
     def __init__(
         self,
         weight_semantic: float = None,
@@ -44,20 +63,36 @@ class ComplexityAnalyzer:
         return float(np.dot(vec_a, vec_b) / (norm_a * norm_b))
 
     def _calculate_task_count(self, text: str) -> int:
-        # Detect task conjunctions, bullet points, and distinct imperative verbs
+        """Helper for task count metrics."""
         delimiters = r"[.;\n]|(?:\b(?:and then|also|furthermore|in addition|next|finally)\b)"
         parts = [p.strip() for p in re.split(delimiters, text, flags=re.IGNORECASE) if p.strip()]
-        
-        # Action verbs indicating distinct operations
-        action_verbs = r"\b(?:write|design|compare|implement|analyze|derive|architect|benchmark|refactor|evaluate|calculate|solve|explain|summarize|translate|build)\b"
+        action_verbs = r"\b(?:write|design|compare|implement|analyze|derive|architect|benchmark|refactor|evaluate|calculate|solve|explain|summarize|translate|build|configure|optimi[ze]|deploy|migrate|integrate)\b"
         verb_matches = len(re.findall(action_verbs, text, flags=re.IGNORECASE))
-        
-        count = max(len(parts), verb_matches, 1)
-        return min(count, 10)
+        return min(max(len(parts), verb_matches, 1), 10)
+
+    def _calculate_task_complexity(self, text: str) -> float:
+        """
+        Multi-factor task complexity calculation.
+        Combines action verbs, technical clause joiners, artifact terms, and clause counts.
+        """
+        action_verbs = r"\b(?:write|design|compare|implement|analyze|derive|architect|benchmark|refactor|evaluate|calculate|solve|explain|summarize|translate|build|configure|optimi[ze]|deploy|migrate|integrate)\b"
+        verb_matches = len(re.findall(action_verbs, text, flags=re.IGNORECASE))
+
+        clause_joiners = r"\b(?:and|with|using|for|including|supporting|incorporating|along with|as well as|via)\b"
+        joiner_matches = len(re.findall(clause_joiners, text, flags=re.IGNORECASE))
+
+        artifact_terms = r"\b(?:pseudocode|trade-offs?|tradeoffs?|diagram|test cases|error handling|dead-letter queue|compensating transactions|schema|api|pipeline|mutex|cgroups|namespaces|autograd|min-heap|lru cache|2pc|saga|lock-free|memory pool)\b"
+        artifact_matches = len(re.findall(artifact_terms, text, flags=re.IGNORECASE))
+
+        delimiters = r"[.;\n]|(?:\b(?:and then|also|furthermore|in addition|next|finally)\b)"
+        parts = [p.strip() for p in re.split(delimiters, text, flags=re.IGNORECASE) if p.strip()]
+        part_count = len(parts)
+
+        raw_task_score = 0.20 * verb_matches + 0.15 * joiner_matches + 0.25 * artifact_matches + 0.10 * max(0, part_count - 1)
+        return round(float(min(1.0, max(0.0, raw_task_score))), 4)
 
     def _estimate_reasoning_depth(self, text: str, sim_high: float, sim_very_high: float) -> int:
-        # Multi-factor / analytical depth indicators
-        high_reasoning_terms = r"\b(?:trade-offs?|tradeoffs?|pros and cons|architect(?:ure)?|design|consensus|concurrency|deadlock|migration|vulnerabilit(?:y|ies)|benchmark|optimization|distributed|microservices)\b"
+        high_reasoning_terms = r"\b(?:trade-offs?|tradeoffs?|pros and cons|architect(?:ure)?|design|consensus|concurrency|deadlock|migration|vulnerabilit(?:y|ies)|benchmark|optimization|distributed|microservices|proof|prove|undecidable|kalman|derivation|derive|autograd)\b"
         matches = len(re.findall(high_reasoning_terms, text, flags=re.IGNORECASE))
 
         avg_high_sim = (sim_high + sim_very_high) / 2.0
@@ -74,8 +109,7 @@ class ComplexityAnalyzer:
             return 0
 
     def _estimate_output_complexity(self, text: str, reasoning_depth: int) -> float:
-        # Detect explicit multi-artifact or high-volume output requests
-        multi_artifact_terms = r"\b(?:architecture|blueprint|implementation strategy|trade-offs|full-stack|end-to-end|system design|code and explanation)\b"
+        multi_artifact_terms = r"\b(?:architecture|blueprint|implementation strategy|trade-offs|full-stack|end-to-end|system design|code and explanation|pseudocode|proof)\b"
         code_terms = r"\b(?:python|c\+\+|java|rust|sql|javascript|code|script|function|program|api)\b"
 
         if re.search(multi_artifact_terms, text, flags=re.IGNORECASE) or reasoning_depth >= 4:
@@ -118,31 +152,30 @@ class ComplexityAnalyzer:
         sim_high = level_sims.get("high", 0.0)
         sim_very_high = level_sims.get("very_high", 0.0)
 
-        # 1. Semantic Complexity factor [0.0 - 1.0]
-        # Weighted expectation of similarity across complexity levels
-        sem_score = (
-            0.05 * sim_low +
-            0.35 * sim_medium +
-            0.70 * sim_high +
-            1.00 * sim_very_high
-        )
+        # 1. Semantic Complexity: Temperature-Scaled Softmax Normalized Prototype Scaling
+        sims_vector = np.array([sim_low, sim_medium, sim_high, sim_very_high], dtype=np.float64)
+        beta = 10.0
+        exp_sims = np.exp(beta * (sims_vector - np.max(sims_vector)))
+        softmax_probs = exp_sims / np.sum(exp_sims)
+        level_weights = np.array([0.10, 0.40, 0.70, 1.00], dtype=np.float64)
+        sem_score = float(np.dot(softmax_probs, level_weights))
         semantic_complexity = round(float(min(1.0, max(0.0, sem_score))), 4)
 
         # 2. Task Complexity factor [0.0 - 1.0]
+        task_complexity = self._calculate_task_complexity(text)
         task_count = self._calculate_task_count(text)
-        task_complexity = round(float(min(1.0, max(0.0, (task_count - 1) / 4.0))), 4)
 
         # 3. Reasoning Complexity factor [0.0 - 1.0]
         reasoning_depth = self._estimate_reasoning_depth(text, sim_high, sim_very_high)
         reasoning_complexity = round(float(reasoning_depth / 4.0), 4)
 
-        # 4. Context Complexity factor [0.0 - 1.0]
+        # 4. Context Complexity factor [0.0 - 1.0]: Non-linear exponential saturation (ref: 60 words)
         words = text.split()
         word_count = len(words)
         has_code_block = "```" in text
         has_list = bool(re.search(r"^\s*[-*1-9]\.", text, flags=re.MULTILINE))
         
-        words_norm = min(1.0, word_count / 250.0)
+        words_norm = float(1.0 - np.exp(-word_count / 60.0))
         structure_bonus = 0.20 if (has_code_block or has_list) else 0.0
         context_complexity = round(float(min(1.0, words_norm + structure_bonus)), 4)
 
@@ -159,7 +192,7 @@ class ComplexityAnalyzer:
         )
         complexity_score = round(float(min(1.0, max(0.0, raw_score))), 4)
 
-        # Map to Complexity Level
+        # Map to Complexity Level using calibrated thresholds
         if complexity_score < self.t_low:
             complexity_level = "low"
         elif complexity_score < self.t_medium:

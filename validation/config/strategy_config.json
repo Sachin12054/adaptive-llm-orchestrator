@@ -1,0 +1,59 @@
+{
+  "strategies": {
+    "A": {
+      "strategy_id": "A",
+      "name": "Fixed Gemma",
+      "type": "fixed",
+      "model_id": "gemma-3-4b",
+      "provider": "Local Ollama",
+      "execution_nature": "live"
+    },
+    "B": {
+      "strategy_id": "B",
+      "name": "Fixed Qwen",
+      "type": "fixed",
+      "model_id": "qwen-coder-3b",
+      "provider": "Local Ollama",
+      "execution_nature": "live"
+    },
+    "C": {
+      "strategy_id": "C",
+      "name": "Fixed DeepSeek",
+      "type": "fixed",
+      "model_id": "deepseek-r1-7b",
+      "provider": "Local Ollama",
+      "execution_nature": "live"
+    },
+    "D": {
+      "strategy_id": "D",
+      "name": "Random Routing",
+      "type": "stochastic",
+      "seed": 42,
+      "execution_nature": "live"
+    },
+    "E": {
+      "strategy_id": "E",
+      "name": "Round-Robin",
+      "type": "cyclic",
+      "execution_nature": "live"
+    },
+    "F": {
+      "strategy_id": "F",
+      "name": "Capability Heuristic",
+      "type": "rule_heuristic",
+      "execution_nature": "live"
+    },
+    "G": {
+      "strategy_id": "G",
+      "name": "BaselineAdaptivePolicy",
+      "type": "production_authority",
+      "execution_nature": "live"
+    },
+    "H": {
+      "strategy_id": "H",
+      "name": "RL Contextual Bandit Policy",
+      "type": "offline_shadow_evaluator",
+      "execution_nature": "offline_shadow"
+    }
+  }
+}

@@ -32,7 +32,7 @@ def test_valid_generated_response_passes_baseline_verification():
     verifier = ResponseVerifier()
     req = VerificationRequest(
         prompt="What is the capital of France?",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         generated_text="Paris is the capital of France.",
         generation_success=True,
         execution_status="completed"
@@ -47,14 +47,14 @@ def test_valid_generated_response_passes_baseline_verification():
     assert res.structural_quality_score >= 0.50
     assert res.factual_verification_status == "not_verified"
     assert res.prompt == "What is the capital of France?"
-    assert res.selected_model == "gemini-2.5-flash"
+    assert res.selected_model == "gemini-3.5-flash"
     assert any("Factual correctness is not established" in r for r in res.verification_reasoning)
 
 def test_empty_response_rejected():
     verifier = ResponseVerifier()
     req = VerificationRequest(
         prompt="What is the capital of France?",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         generated_text="   ",
         generation_success=True,
         execution_status="completed"
@@ -71,7 +71,7 @@ def test_none_response_rejected():
     verifier = ResponseVerifier()
     req = VerificationRequest(
         prompt="What is the capital of France?",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         generated_text=None,
         generation_success=True,
         execution_status="completed"
@@ -87,7 +87,7 @@ def test_not_configured_execution_handling():
     verifier = ResponseVerifier()
     req = VerificationRequest(
         prompt="What is the capital of France?",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         generated_text=None,
         generation_success=False,
         execution_status="not_configured"
@@ -104,7 +104,7 @@ def test_failed_execution_handling():
     verifier = ResponseVerifier()
     req = VerificationRequest(
         prompt="What is the capital of France?",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         generated_text=None,
         generation_success=False,
         execution_status="failed"
@@ -119,7 +119,7 @@ def test_empty_prompt_rejection():
     verifier = ResponseVerifier()
     req = VerificationRequest(
         prompt="   ",
-        selected_model="gemini-2.5-flash",
+        selected_model="gemini-3.5-flash",
         generated_text="Paris",
         generation_success=True,
         execution_status="completed"
@@ -138,7 +138,7 @@ def test_api_verification_status_endpoint():
 def test_api_verification_verify_endpoint():
     payload = {
         "prompt": "What is the capital of France?",
-        "selected_model": "gemini-2.5-flash",
+        "selected_model": "gemini-3.5-flash",
         "generated_text": "Paris is the capital of France.",
         "generation_success": True,
         "execution_status": "completed"

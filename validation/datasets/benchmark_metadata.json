@@ -1,0 +1,22 @@
+{
+  "dataset_version": "v1.0.0",
+  "total_prompts": 113,
+  "categories_count": 15,
+  "categories": {
+    "Simple QA": 10,
+    "Explanation": 10,
+    "Summarization": 8,
+    "Coding": 10,
+    "Debugging": 8,
+    "SQL / Database": 8,
+    "Technical Architecture": 8,
+    "Multi-step Reasoning": 8,
+    "Planning": 8,
+    "Comparison / Decision": 8,
+    "Long-Context": 6,
+    "Complex Multi-Objective": 6,
+    "Resource-Sensitive": 5,
+    "Ambiguous Tasks": 5,
+    "Failure / Recovery Scenarios": 5
+  }
+}

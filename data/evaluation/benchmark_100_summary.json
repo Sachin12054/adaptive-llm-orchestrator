@@ -1,0 +1,24 @@
+{
+  "total_prompts": 100,
+  "successful_executions": 14,
+  "failed_executions": 86,
+  "total_wall_clock_time_sec": 875.71,
+  "average_latency_ms": 8753.78,
+  "average_reward": 0.0,
+  "average_cost_usd": 3.7e-05,
+  "routing_distribution_by_model": {
+    "gemini-3.5-flash": 81,
+    "mistral-small-latest": 7,
+    "llama-3.3-70b-versatile": 6,
+    "meta-llama/llama-3.3-70b-instruct": 6
+  },
+  "routing_distribution_by_complexity": {
+    "low": 7,
+    "medium": 84,
+    "high": 9
+  },
+  "intent_classification_accuracy_percent": 65.0,
+  "complexity_classification_accuracy_percent": 33.0,
+  "fallback_count": 0,
+  "rl_baseline_agreement_rate_percent": 0.0
+}

@@ -1,0 +1,535 @@
+{
+  "metadata": {
+    "experiment": "RUN_4_SYNTHESIS_OPTIMIZATION",
+    "title": "Controlled Synthesis Ablation Results",
+    "sample_size_n": 18,
+    "strategies_evaluated": [
+      "S0",
+      "S1",
+      "S2",
+      "S3"
+    ],
+    "execution_environment": "Local Ollama (CPU 16 Threads)",
+    "no_rerun_compliance": true
+  },
+  "summary_statistics": {
+    "S0": {
+      "synthesis_latency_s": {
+        "mean": 147.0408,
+        "std": 32.8912,
+        "std_err": 7.7525,
+        "margin": 16.3564,
+        "ci_lower": 130.6844,
+        "ci_upper": 163.3972,
+        "p50": 154.0642,
+        "p95": 171.3196
+      },
+      "e2e_latency_s": {
+        "mean": 268.7595,
+        "std": 129.6808,
+        "std_err": 30.5661,
+        "margin": 64.4887,
+        "ci_lower": 204.2707,
+        "ci_upper": 333.2482,
+        "p50": 233.9106,
+        "p95": 546.1289
+      },
+      "quality": {
+        "mean": 1.0,
+        "std": 0.0,
+        "std_err": 0.0,
+        "margin": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "coverage_pct": {
+        "mean": 91.6667,
+        "std": 19.1741,
+        "std_err": 4.5194,
+        "margin": 9.5351,
+        "ci_lower": 82.1316,
+        "ci_upper": 101.2017,
+        "p50": 100.0,
+        "p95": 100.0
+      },
+      "output_tokens": {
+        "mean": 413.7778,
+        "std": 399.7671,
+        "std_err": 94.226,
+        "margin": 198.7995,
+        "ci_lower": 214.9783,
+        "ci_upper": 612.5773,
+        "p50": 267.0,
+        "p95": 1177.6
+      },
+      "character_count": {
+        "mean": 2140.3333,
+        "std": 2120.2544,
+        "std_err": 499.7487,
+        "margin": 1054.3777,
+        "ci_lower": 1085.9556,
+        "ci_upper": 3194.711,
+        "p50": 1317.5,
+        "p95": 6082.1
+      },
+      "cpu_utilization_pct": {
+        "mean": 54.5778,
+        "std": 5.4532,
+        "std_err": 1.2853,
+        "margin": 2.7118,
+        "ci_lower": 51.866,
+        "ci_upper": 57.2896,
+        "p50": 55.15,
+        "p95": 60.19
+      },
+      "ram_usage_mb": {
+        "mean": 13872.0278,
+        "std": 1338.0609,
+        "std_err": 315.384,
+        "margin": 665.402,
+        "ci_lower": 13206.6258,
+        "ci_upper": 14537.4298,
+        "p50": 14147.7,
+        "p95": 15224.365
+      },
+      "quality_per_sec": {
+        "mean": 0.0045,
+        "std": 0.0021,
+        "std_err": 0.0005,
+        "margin": 0.001,
+        "ci_lower": 0.0035,
+        "ci_upper": 0.0055,
+        "p50": 0.0043,
+        "p95": 0.0077
+      },
+      "coverage_per_sec": {
+        "mean": 0.4164,
+        "std": 0.2122,
+        "std_err": 0.05,
+        "margin": 0.1055,
+        "ci_lower": 0.3109,
+        "ci_upper": 0.522,
+        "p50": 0.4,
+        "p95": 0.7575
+      }
+    },
+    "S1": {
+      "synthesis_latency_s": {
+        "mean": 45.0327,
+        "std": 13.0804,
+        "std_err": 3.0831,
+        "margin": 6.5047,
+        "ci_lower": 38.528,
+        "ci_upper": 51.5374,
+        "p50": 50.7385,
+        "p95": 54.8141
+      },
+      "e2e_latency_s": {
+        "mean": 166.7513,
+        "std": 124.9983,
+        "std_err": 29.4624,
+        "margin": 62.1602,
+        "ci_lower": 104.5912,
+        "ci_upper": 228.9115,
+        "p50": 119.9986,
+        "p95": 444.2329
+      },
+      "quality": {
+        "mean": 1.0,
+        "std": 0.0,
+        "std_err": 0.0,
+        "margin": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "coverage_pct": {
+        "mean": 91.6667,
+        "std": 25.7248,
+        "std_err": 6.0634,
+        "margin": 12.7926,
+        "ci_lower": 78.874,
+        "ci_upper": 104.4593,
+        "p50": 100.0,
+        "p95": 100.0
+      },
+      "output_tokens": {
+        "mean": 704.2778,
+        "std": 283.9558,
+        "std_err": 66.929,
+        "margin": 141.2079,
+        "ci_lower": 563.0699,
+        "ci_upper": 845.4857,
+        "p50": 827.5,
+        "p95": 922.3
+      },
+      "character_count": {
+        "mean": 3931.2222,
+        "std": 1723.2118,
+        "std_err": 406.1649,
+        "margin": 856.933,
+        "ci_lower": 3074.2892,
+        "ci_upper": 4788.1553,
+        "p50": 4760.5,
+        "p95": 5107.65
+      },
+      "cpu_utilization_pct": {
+        "mean": 39.9056,
+        "std": 18.4295,
+        "std_err": 4.3439,
+        "margin": 9.1648,
+        "ci_lower": 30.7408,
+        "ci_upper": 49.0703,
+        "p50": 29.4,
+        "p95": 67.22
+      },
+      "ram_usage_mb": {
+        "mean": 12630.2056,
+        "std": 1422.363,
+        "std_err": 335.2542,
+        "margin": 707.3245,
+        "ci_lower": 11922.8811,
+        "ci_upper": 13337.53,
+        "p50": 12594.9,
+        "p95": 14344.01
+      },
+      "quality_per_sec": {
+        "mean": 0.0098,
+        "std": 0.008,
+        "std_err": 0.0019,
+        "margin": 0.004,
+        "ci_lower": 0.0058,
+        "ci_upper": 0.0138,
+        "p50": 0.0083,
+        "p95": 0.0275
+      },
+      "coverage_per_sec": {
+        "mean": 0.7481,
+        "std": 0.4929,
+        "std_err": 0.1162,
+        "margin": 0.2451,
+        "ci_lower": 0.503,
+        "ci_upper": 0.9932,
+        "p50": 0.7511,
+        "p95": 1.601
+      }
+    },
+    "S2": {
+      "synthesis_latency_s": {
+        "mean": 0.0008,
+        "std": 0.0009,
+        "std_err": 0.0002,
+        "margin": 0.0005,
+        "ci_lower": 0.0003,
+        "ci_upper": 0.0012,
+        "p50": 0.0002,
+        "p95": 0.0025
+      },
+      "e2e_latency_s": {
+        "mean": 121.7194,
+        "std": 119.7158,
+        "std_err": 28.2173,
+        "margin": 59.5333,
+        "ci_lower": 62.1861,
+        "ci_upper": 181.2527,
+        "p50": 67.2222,
+        "p95": 392.4945
+      },
+      "quality": {
+        "mean": 1.0,
+        "std": 0.0,
+        "std_err": 0.0,
+        "margin": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "coverage_pct": {
+        "mean": 100.0,
+        "std": 0.0,
+        "std_err": 0.0,
+        "margin": 0.0,
+        "ci_lower": 100.0,
+        "ci_upper": 100.0,
+        "p50": 100.0,
+        "p95": 100.0
+      },
+      "output_tokens": {
+        "mean": 1775.0,
+        "std": 888.512,
+        "std_err": 209.4243,
+        "margin": 441.8466,
+        "ci_lower": 1333.1534,
+        "ci_upper": 2216.8466,
+        "p50": 1556.0,
+        "p95": 2987.55
+      },
+      "character_count": {
+        "mean": 9898.2778,
+        "std": 5361.3562,
+        "std_err": 1263.6838,
+        "margin": 2666.1397,
+        "ci_lower": 7232.1381,
+        "ci_upper": 12564.4175,
+        "p50": 8892.5,
+        "p95": 17097.35
+      },
+      "cpu_utilization_pct": {
+        "mean": 33.0778,
+        "std": 27.5189,
+        "std_err": 6.4863,
+        "margin": 13.6848,
+        "ci_lower": 19.393,
+        "ci_upper": 46.7626,
+        "p50": 40.9,
+        "p95": 74.42
+      },
+      "ram_usage_mb": {
+        "mean": 12632.1056,
+        "std": 1423.6895,
+        "std_err": 335.5668,
+        "margin": 707.9842,
+        "ci_lower": 11924.1214,
+        "ci_upper": 13340.0897,
+        "p50": 12595.05,
+        "p95": 14355.055
+      },
+      "quality_per_sec": {
+        "mean": 0.0175,
+        "std": 0.017,
+        "std_err": 0.004,
+        "margin": 0.0085,
+        "ci_lower": 0.0091,
+        "ci_upper": 0.026,
+        "p50": 0.0149,
+        "p95": 0.0519
+      },
+      "coverage_per_sec": {
+        "mean": 1.7539,
+        "std": 1.7044,
+        "std_err": 0.4017,
+        "margin": 0.8476,
+        "ci_lower": 0.9063,
+        "ci_upper": 2.6015,
+        "p50": 1.4876,
+        "p95": 5.1869
+      }
+    },
+    "S3": {
+      "synthesis_latency_s": {
+        "mean": 4.5093,
+        "std": 0.3021,
+        "std_err": 0.0712,
+        "margin": 0.1502,
+        "ci_lower": 4.359,
+        "ci_upper": 4.6595,
+        "p50": 4.4563,
+        "p95": 5.0429
+      },
+      "e2e_latency_s": {
+        "mean": 126.2279,
+        "std": 119.7962,
+        "std_err": 28.2362,
+        "margin": 59.5733,
+        "ci_lower": 66.6546,
+        "ci_upper": 185.8012,
+        "p50": 71.9997,
+        "p95": 397.0286
+      },
+      "quality": {
+        "mean": 1.0,
+        "std": 0.0,
+        "std_err": 0.0,
+        "margin": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "coverage_pct": {
+        "mean": 100.0,
+        "std": 0.0,
+        "std_err": 0.0,
+        "margin": 0.0,
+        "ci_lower": 100.0,
+        "ci_upper": 100.0,
+        "p50": 100.0,
+        "p95": 100.0
+      },
+      "output_tokens": {
+        "mean": 1841.7778,
+        "std": 889.2875,
+        "std_err": 209.6071,
+        "margin": 442.2322,
+        "ci_lower": 1399.5455,
+        "ci_upper": 2284.01,
+        "p50": 1624.5,
+        "p95": 3054.3
+      },
+      "character_count": {
+        "mean": 10289.1111,
+        "std": 5381.6305,
+        "std_err": 1268.4625,
+        "margin": 2676.2219,
+        "ci_lower": 7612.8892,
+        "ci_upper": 12965.333,
+        "p50": 9321.0,
+        "p95": 17509.9
+      },
+      "cpu_utilization_pct": {
+        "mean": 42.8278,
+        "std": 19.5486,
+        "std_err": 4.6076,
+        "margin": 9.7213,
+        "ci_lower": 33.1065,
+        "ci_upper": 52.5491,
+        "p50": 54.6,
+        "p95": 64.21
+      },
+      "ram_usage_mb": {
+        "mean": 12824.5667,
+        "std": 1439.9054,
+        "std_err": 339.389,
+        "margin": 716.0481,
+        "ci_lower": 12108.5186,
+        "ci_upper": 13540.6148,
+        "p50": 12871.4,
+        "p95": 14604.685
+      },
+      "quality_per_sec": {
+        "mean": 0.0155,
+        "std": 0.0135,
+        "std_err": 0.0032,
+        "margin": 0.0067,
+        "ci_lower": 0.0088,
+        "ci_upper": 0.0222,
+        "p50": 0.0139,
+        "p95": 0.0426
+      },
+      "coverage_per_sec": {
+        "mean": 1.5461,
+        "std": 1.349,
+        "std_err": 0.318,
+        "margin": 0.6708,
+        "ci_lower": 0.8752,
+        "ci_upper": 2.2169,
+        "p50": 1.3889,
+        "p95": 4.2617
+      }
+    }
+  },
+  "paired_comparisons": {
+    "S0_vs_S1": {
+      "synthesis_latency_reduction_pct": 69.37,
+      "e2e_latency_reduction_pct": 37.96,
+      "quality": {
+        "mean_diff": 0.0,
+        "t_statistic": NaN,
+        "p_value": NaN,
+        "wilcoxon_p_value": NaN,
+        "cohens_d": 0.0,
+        "statistically_significant": false
+      },
+      "coverage": {
+        "mean_diff_pct": 0.0,
+        "t_statistic": 0.0,
+        "p_value": 1.0,
+        "wilcoxon_p_value": 1.0,
+        "cohens_d": 0.0,
+        "statistically_significant": false
+      },
+      "synthesis_latency": {
+        "mean_diff_s": -102.0081,
+        "t_statistic": -13.434,
+        "p_value": 1.7570465146478614e-10,
+        "wilcoxon_p_value": 1.52587890625e-05,
+        "cohens_d": -3.1664,
+        "statistically_significant": true
+      },
+      "e2e_latency": {
+        "mean_diff_s": -102.0081,
+        "t_statistic": -13.434,
+        "p_value": 1.7570465146478503e-10,
+        "wilcoxon_p_value": 1.52587890625e-05,
+        "cohens_d": -3.1664,
+        "statistically_significant": true
+      }
+    },
+    "S0_vs_S2": {
+      "synthesis_latency_reduction_pct": 100.0,
+      "e2e_latency_reduction_pct": 54.71,
+      "quality": {
+        "mean_diff": 0.0,
+        "t_statistic": NaN,
+        "p_value": NaN,
+        "wilcoxon_p_value": NaN,
+        "cohens_d": 0.0,
+        "statistically_significant": false
+      },
+      "coverage": {
+        "mean_diff_pct": 8.3333,
+        "t_statistic": 1.8439,
+        "p_value": 0.08269790631271424,
+        "wilcoxon_p_value": 0.0832645166635504,
+        "cohens_d": 0.4346,
+        "statistically_significant": false
+      },
+      "synthesis_latency": {
+        "mean_diff_s": -147.0401,
+        "t_statistic": -18.9667,
+        "p_value": 7.108888291474868e-13,
+        "wilcoxon_p_value": 7.62939453125e-06,
+        "cohens_d": -4.4705,
+        "statistically_significant": true
+      },
+      "e2e_latency": {
+        "mean_diff_s": -147.0401,
+        "t_statistic": -18.9667,
+        "p_value": 7.108888291474868e-13,
+        "wilcoxon_p_value": 7.62939453125e-06,
+        "cohens_d": -4.4705,
+        "statistically_significant": true
+      }
+    },
+    "S0_vs_S3": {
+      "synthesis_latency_reduction_pct": 96.93,
+      "e2e_latency_reduction_pct": 53.03,
+      "quality": {
+        "mean_diff": 0.0,
+        "t_statistic": NaN,
+        "p_value": NaN,
+        "wilcoxon_p_value": NaN,
+        "cohens_d": 0.0,
+        "statistically_significant": false
+      },
+      "coverage": {
+        "mean_diff_pct": 8.3333,
+        "t_statistic": 1.8439,
+        "p_value": 0.08269790631271424,
+        "wilcoxon_p_value": 0.0832645166635504,
+        "cohens_d": 0.4346,
+        "statistically_significant": false
+      },
+      "synthesis_latency": {
+        "mean_diff_s": -142.5316,
+        "t_statistic": -18.4019,
+        "p_value": 1.161867596390576e-12,
+        "wilcoxon_p_value": 7.62939453125e-06,
+        "cohens_d": -4.3374,
+        "statistically_significant": true
+      },
+      "e2e_latency": {
+        "mean_diff_s": -142.5316,
+        "t_statistic": -18.4019,
+        "p_value": 1.1618675963905718e-12,
+        "wilcoxon_p_value": 7.62939453125e-06,
+        "cohens_d": -4.3374,
+        "statistically_significant": true
+      }
+    }
+  }
+}

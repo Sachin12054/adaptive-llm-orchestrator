@@ -20,6 +20,7 @@ from app.api.routes import (
     experience,
     rl,
     complex,
+    metrics,
 )
 
 app = FastAPI(
@@ -55,6 +56,7 @@ app.include_router(orchestration.router, prefix=settings.API_V1_STR, tags=["End-
 app.include_router(experience.router, prefix=settings.API_V1_STR, tags=["Experience Replay Buffer"])
 app.include_router(rl.router, prefix=settings.API_V1_STR, tags=["RL Policy Framework"])
 app.include_router(complex.router, prefix=settings.API_V1_STR, tags=["Complex Task Allocation"])
+app.include_router(metrics.router, prefix=settings.API_V1_STR, tags=["Cost & Performance Metrics"])
 
 @app.on_event("startup")
 async def startup_event():

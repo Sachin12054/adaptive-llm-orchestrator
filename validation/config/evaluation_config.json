@@ -1,0 +1,42 @@
+{
+  "quality_rubric": {
+    "scale": [0, 1, 2, 3, 4, 5],
+    "levels": {
+      "0": "Unusable / Complete Failure / Off-target domain",
+      "1": "Poor / Major inaccuracies or severe incompleteness",
+      "2": "Partially useful / Missing key details or minor domain drift",
+      "3": "Acceptable / Fulfills basic objective with minor omissions",
+      "4": "Good / Clear, accurate, comprehensive response",
+      "5": "Excellent / Flawless, highly detailed, perfectly domain-aligned"
+    },
+    "weights": {
+      "relevance": 0.30,
+      "correctness": 0.25,
+      "completeness": 0.25,
+      "domain_consistency": 0.20
+    }
+  },
+  "provider_pricing_per_1k_tokens": {
+    "Local Ollama": {
+      "input": 0.0,
+      "output": 0.0,
+      "notes": "Zero API dollar cost; local CPU/GPU compute only"
+    },
+    "Google Gemini API": {
+      "input": 0.000075,
+      "output": 0.000300
+    },
+    "Mistral API": {
+      "input": 0.000100,
+      "output": 0.000300
+    },
+    "Groq API": {
+      "input": 0.000590,
+      "output": 0.000790
+    },
+    "OpenRouter API": {
+      "input": 0.000400,
+      "output": 0.000800
+    }
+  }
+}

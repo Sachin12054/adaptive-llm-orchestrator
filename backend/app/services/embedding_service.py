@@ -57,7 +57,10 @@ class EmbeddingService:
         logger.info(f"Loading embedding model '{self.model_name}' on device '{self.device}'...")
         try:
             from sentence_transformers import SentenceTransformer
-            model_inst = SentenceTransformer(self.model_name, device=self.device)
+            try:
+                model_inst = SentenceTransformer(self.model_name, device=self.device, local_files_only=True)
+            except Exception:
+                model_inst = SentenceTransformer(self.model_name, device=self.device)
             dim = model_inst.get_embedding_dimension()
 
             EmbeddingService._shared_model = model_inst

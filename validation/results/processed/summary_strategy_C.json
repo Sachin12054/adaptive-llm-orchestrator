@@ -1,0 +1,23 @@
+{
+  "strategy_id": "C",
+  "strategy_name": "C",
+  "sample_count": 113,
+  "quality_mean_0_to_5": 4.57,
+  "quality_95_ci": [
+    4.4958,
+    4.6457
+  ],
+  "latency_mean_ms": 71853.61,
+  "latency_p50_ms": 74411.03,
+  "latency_p95_ms": 77500.78,
+  "latency_std_ms": 11707.0,
+  "latency_95_ci": [
+    69556.2912,
+    73840.5201
+  ],
+  "total_cost_usd": 0.0329,
+  "average_cost_usd": 0.000291,
+  "success_rate": 1.0,
+  "failover_rate": 0.0,
+  "status": "PRIMARY_CONTROLLED_MEASURED"
+}

@@ -5,13 +5,14 @@ from app.schemas.decision import DecisionResponse
 from app.schemas.response import ResponseGenerationResponse
 from app.schemas.verification import VerificationResponse
 from app.schemas.reward import RewardComputeResponse
+from app.schemas.complex import ComplexTaskPlan
 
 class OrchestrationRequest(BaseModel):
     prompt: str = Field(..., description="User prompt text to orchestrate through the full platform pipeline")
     system_instruction: Optional[str] = Field(None, description="Optional system instruction / persona prompt")
     temperature: Optional[float] = Field(None, description="Optional sampling temperature [0.0 - 2.0]")
     max_output_tokens: Optional[int] = Field(None, description="Optional maximum output token limit")
-    execution_mode: Optional[str] = Field("local", description="Execution mode: local (Ollama) or gemini (Google Gemini API)")
+    execution_mode: Optional[str] = Field("local", description="Execution mode: local (Ollama) or online (Cloud APIs)")
     run_id: Optional[str] = Field(None, description="Unique execution run identifier for request-response correlation")
 
 class OrchestrationResponse(BaseModel):
@@ -25,6 +26,7 @@ class OrchestrationResponse(BaseModel):
     verification: VerificationResponse = Field(..., description="Full Step 17 Response Verifier payload")
     reward: RewardComputeResponse = Field(..., description="Full Step 18 Reward Signal payload")
     pipeline_latency_ms: float = Field(..., description="End-to-end orchestration pipeline latency in milliseconds")
+    complex_plan: Optional[ComplexTaskPlan] = Field(None, description="Optional complex task execution plan payload if prompt was decomposed")
 
 class OrchestrationStatusResponse(BaseModel):
     status: str = Field(..., description="E2E Pipeline status: ready, unconfigured")

@@ -1,0 +1,24 @@
+{
+  "strategy_id": "A",
+  "strategy_name": "A",
+  "models_used": "gemma-3-4b",
+  "sample_count": 113,
+  "quality_mean_0_to_5": 4.56,
+  "quality_95_ci": [
+    4.4977,
+    4.615
+  ],
+  "latency_mean_ms": 18826.1,
+  "latency_p50_ms": 20528.99,
+  "latency_p95_ms": 22296.47,
+  "latency_std_ms": 4835.98,
+  "latency_95_ci": [
+    17903.5965,
+    19685.7971
+  ],
+  "total_cost_usd": 0.0,
+  "average_cost_usd": 0.0,
+  "success_rate_pct": 1.0,
+  "failover_rate_pct": 0.0,
+  "status": "LOCAL_ONLY_MEASURED"
+}

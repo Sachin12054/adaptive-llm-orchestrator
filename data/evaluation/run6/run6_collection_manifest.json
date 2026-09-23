@@ -1,0 +1,37 @@
+{
+  "run_id": "RUN_6_CONTROLLED_COLLECTION",
+  "status": "aborted_incomplete_provider_availability",
+  "benchmark_path": "datasets/evaluation/benchmark_100.json",
+  "buffer_path": "data/evaluation/run6/run6_experiences.jsonl",
+  "attempt_count": 53,
+  "raw_record_count": 53,
+  "valid_record_count": 53,
+  "action_counts": {
+    "A0": 20,
+    "A1": 1,
+    "A2": 3,
+    "A3": 17,
+    "A4": 1,
+    "A5": 0,
+    "A6": 11,
+    "A7": 0
+  },
+  "a7_generation_count": 0,
+  "exploration_mode": true,
+  "exploration_epsilon": 0.2,
+  "exploration_seed": 42,
+  "coverage_gate_passed": false,
+  "training_started": false,
+  "promotion_started": false,
+  "provider_limitations": {
+    "gemini-3.5-flash": "429 RESOURCE_EXHAUSTED quota",
+    "mistral-small-latest": "429 rate limit",
+    "llama-3.3-70b-versatile": "403 Forbidden"
+  },
+  "notes": [
+    "All records are real observations from the isolated RUN 6 buffer.",
+    "Fallback executions were retained as actual selected-versus-executed observations but do not count as target-provider coverage.",
+    "The dataset was not trained because A5 has zero valid observations and the all-actions A0-A6 gate failed.",
+    "RUN_1-RUN_5 artifacts and the production RL artifact were not modified. The canonical buffer received one pre-collection test telemetry record during focused validation; RUN 6 records themselves remained isolated."
+  ]
+}

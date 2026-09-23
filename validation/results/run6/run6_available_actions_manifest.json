@@ -1,0 +1,80 @@
+{
+  "run_id": "RUN_6_AVAILABILITY_CONSTRAINED",
+  "status": "trained_evaluated_not_promoted",
+  "timestamp": 1789964916.6060066,
+  "full_configured_action_space": [
+    "A0",
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6"
+  ],
+  "final_executable_action_space": [
+    "A0",
+    "A1",
+    "A2",
+    "A6"
+  ],
+  "excluded_actions": {
+    "A3": "Gemini 429 RESOURCE_EXHAUSTED quota",
+    "A4": "Mistral 429 rate limit",
+    "A5": "Groq 403 Forbidden authorization failure",
+    "A7": "Embedding action masked"
+  },
+  "dataset_path": "data\\evaluation\\run6\\final_available_actions_direct\\run6_available_actions.jsonl",
+  "dataset_sha256": "f479826d8c96f62504c62c9ba8f08a68ccae4433602a50badd278a541deb336f",
+  "raw_records": 72,
+  "valid_records": 72,
+  "train_samples": 50,
+  "test_samples": 22,
+  "action_counts": {
+    "A0": 18,
+    "A1": 18,
+    "A2": 18,
+    "A3": 0,
+    "A4": 0,
+    "A5": 0,
+    "A6": 18,
+    "A7": 0
+  },
+  "training_config": {
+    "algorithm": "existing PolicyTrainer regularized linear contextual bandit",
+    "K": 8,
+    "D": 12,
+    "seed": 42,
+    "epochs": 100,
+    "learning_rate": 0.01,
+    "l2_lambda": 0.01
+  },
+  "training_mse": 0.0059,
+  "artifact_path": "data\\rl\\models\\rl_contextual_bandit_policy_run6_available_actions.json",
+  "artifact_sha256": "621cedee51863063a29cdb56ff8860a37039934052ebb04cb8d2359df7b616ad",
+  "evaluation": {
+    "regime": "Availability-Constrained RUN 6 Evaluation",
+    "test_samples": 22,
+    "agreement_count": 0,
+    "agreement_rate": 0.0,
+    "ips": 0.0,
+    "snips": 0.0,
+    "ess": 0.0,
+    "positivity_coverage": 0.0,
+    "observed_reward_mean": 0.8980545454545454,
+    "observed_reward_median": 0.9343,
+    "success_rate": 1.0,
+    "latency_mean_ms": 9542.955,
+    "latency_median_ms": 3871.3099999999995,
+    "latency_p95_ms": 31536.15,
+    "cost_total_usd": 0.000772,
+    "action_agreement_predictions": {
+      "1": 19,
+      "0": 3
+    },
+    "interpretation": "No paired online RL rollout was performed; off-policy inference is weak/insufficient with this deterministic behavior policy and low ESS."
+  },
+  "production_artifact_sha256": "f0e8f61370931eb9cca7421d0ac8a016b46eac7d31c87622cfe9e7d2b2f1fc71",
+  "production_promotion": false,
+  "a7_masked": true,
+  "online_validation": "NOT RUN \u2014 availability-constrained offline evaluation only"
+}

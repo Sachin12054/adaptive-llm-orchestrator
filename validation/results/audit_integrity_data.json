@@ -1,0 +1,321 @@
+{
+  "raw_integrity": {
+    "RUN_1_FULL_PROVIDER": {
+      "raw_results_strategy_A.jsonl": {
+        "size_bytes": 103727,
+        "mtime": 1788428222.0230105,
+        "sha256": "cfd56635707fd58cf3162e38d6d62dd5a8395491df58321ebbaeeb2b45384b6b"
+      },
+      "raw_results_strategy_B.jsonl": {
+        "size_bytes": 97692,
+        "mtime": 1788428826.8906643,
+        "sha256": "9b205287c9a087063bf2708217651db351a8e690defa1d82041d58ef10d4f422"
+      },
+      "raw_results_strategy_C.jsonl": {
+        "size_bytes": 103663,
+        "mtime": 1788436778.7967472,
+        "sha256": "a9693657ece6f4636e781e7112fa6678d6fe4b8bf9299fe867c6d4a9106e45e8"
+      },
+      "raw_results_strategy_D.jsonl": {
+        "size_bytes": 89394,
+        "mtime": 1788437175.574923,
+        "sha256": "04b4616fe33ef8b8c2c9780aa26ebde0215dc00725e2f7e682167ad1beb1a659"
+      },
+      "raw_results_strategy_E.jsonl": {
+        "size_bytes": 90093,
+        "mtime": 1788437503.6304617,
+        "sha256": "aabf04cc6e8547e8173d04ef5cae561ad1731b21bf02c466372615a6bcd02307"
+      },
+      "raw_results_strategy_F.jsonl": {
+        "size_bytes": 90792,
+        "mtime": 1788438015.6677606,
+        "sha256": "4e41d14cf4e8f99689fb9a21660db55b382cbf20bda3511980db578046e6a89c"
+      },
+      "raw_results_strategy_G.jsonl": {
+        "size_bytes": 86768,
+        "mtime": 1788438379.7743177,
+        "sha256": "bc6308a5e21922a5603dc186417c2ab10b0af7a10bd42e9f285940b5ee363d09"
+      }
+    },
+    "RUN_2_LOCAL_ONLY": {
+      "raw_results_strategy_A.jsonl": {
+        "size_bytes": 110543,
+        "mtime": 1788469207.541713,
+        "sha256": "f968ef8c3ab2061d932b69e7094c9d9b67bf49dd108743573cbe3e896eb4dbea"
+      },
+      "raw_results_strategy_B.jsonl": {
+        "size_bytes": 104781,
+        "mtime": 1788469806.9280453,
+        "sha256": "dad32b0673e45a7b9abd613b3b89ecbef8bd9851d5ebb91fbd01c225584a3ee9"
+      },
+      "raw_results_strategy_C.jsonl": {
+        "size_bytes": 110518,
+        "mtime": 1788477078.8029265,
+        "sha256": "4a877ece5a81dd922a97ffc02e2957479d7772ff6247fcde62a7728d49c60a7b"
+      },
+      "raw_results_strategy_D.jsonl": {
+        "size_bytes": 109102,
+        "mtime": 1788481092.722235,
+        "sha256": "2fa8f7566057ab2bd44dabc4a2a229375dd73f1d1c2eb3fcec7d6906765ef394"
+      },
+      "raw_results_strategy_E.jsonl": {
+        "size_bytes": 108210,
+        "mtime": 1788485139.7543254,
+        "sha256": "f5cb39fd575cbf25a6d5590e6d4e3dbbb7bf4d6397a8c60582d2dbe58c06220c"
+      },
+      "raw_results_strategy_F.jsonl": {
+        "size_bytes": 110357,
+        "mtime": 1788487774.7933652,
+        "sha256": "2db927af9a3843ee30ea1103f7f06a3fa8c85c6b7fec6c6675a916abf072099b"
+      },
+      "raw_results_strategy_G.jsonl": {
+        "size_bytes": 108608,
+        "mtime": 1788491314.1254704,
+        "sha256": "8fb3fbff0d8e46f4680a5e0f51d70d913ceadfae40ae09ab3601448f3d5587c1"
+      }
+    },
+    "RUN_3_COMPLEX_TASK": {
+      "orchestrated_results.jsonl": {
+        "size_bytes": 58539,
+        "mtime": 1788899810.500152,
+        "sha256": "2eb7a6d396dd2428b9f807e20755b142357f1d243b2b9621c6f6ad86673d67ea"
+      },
+      "single_model_results.jsonl": {
+        "size_bytes": 78868,
+        "mtime": 1788899694.2448516,
+        "sha256": "79e7af260928e11e644edd6cd390edaaffed3c6cd167ba44345aa252fccd45d6"
+      }
+    },
+    "RUN_4_SYNTHESIS": {
+      "cached_subtasks.json": {
+        "size_bytes": 304240,
+        "mtime": 1788954890.2976658,
+        "sha256": "77cc14420f48d902bcb400b2c35a22bdf3dc75257ce4db61de40672e2b708c22"
+      },
+      "synthesis_ablation_results.jsonl": {
+        "size_bytes": 548798,
+        "mtime": 1788955033.9120226,
+        "sha256": "edba7b95e29e147453569154a86f8e35cf83f4ac0fbb8c933df63112c51a0e9b"
+      }
+    }
+  },
+  "claims_count": 27,
+  "claims": [
+    {
+      "report_file": "13_final_validation_report.md",
+      "line_number": 47,
+      "terms": [
+        "best"
+      ],
+      "line_text": "- `qwen-coder-3b` (Strategy B) offered the best speed-quality balance for code and structured QA, operating at an average latency of **5.49 seconds**."
+    },
+    {
+      "report_file": "13_final_validation_report.md",
+      "line_number": 49,
+      "terms": [
+        "equivalent"
+      ],
+      "line_text": "- `deepseek-r1-7b` (Strategy C) produced equivalent high quality (**4.57 / 5.0**) but required **71.85 seconds** average generation time on CPU."
+    },
+    {
+      "report_file": "15_scientific_integrity_audit.md",
+      "line_number": 120,
+      "terms": [
+        "significant"
+      ],
+      "line_text": "2. **\"Statistically Significant Quality Improvement ($p = 0.0382$)\"** \u2794 Correct to: *Invalid due to synthetic dry-run evaluation.*"
+    },
+    {
+      "report_file": "18_local_only_protocol.md",
+      "line_number": 34,
+      "terms": [
+        "best"
+      ],
+      "line_text": "* **Strategy F (Local Capability Heuristic)**: Maps prompt category to the best matching local model (Coding/Math $\\rightarrow$ `qwen-coder-3b`, Reasoning/Complex $\\rightarrow$ `deepseek-r1-7b`, Simple/General $\\rightarrow$ `gemma-3-4b`)."
+    },
+    {
+      "report_file": "24_local_only_comparative_findings.md",
+      "line_number": 14,
+      "terms": [
+        "best"
+      ],
+      "line_text": "| **Mean Quality (Best Model)** | 4.58 (Fixed Gemma) | **4.62** (Fixed DeepSeek R1) | High quality preserved under local execution |"
+    },
+    {
+      "report_file": "24_local_only_comparative_findings.md",
+      "line_number": 22,
+      "terms": [
+        "eliminated"
+      ],
+      "line_text": "1. **Elimination of Rate Limit Confounding**: In Run 1, cloud API rate limits (HTTP 429 quota exhaustion on Gemini free tier) distorted reliability measurements for Strategies D, E, F, and G. In Run 2 (`LOCAL_ONLY_V1`), 100% local execution eliminated all network noise, resulting in **100% execution success across all 791 benchmark runs**."
+    },
+    {
+      "report_file": "26_final_local_only_scientific_analysis.md",
+      "line_number": 70,
+      "terms": [
+        "significant"
+      ],
+      "line_text": "| Pair Comparison | G Mean Quality | Target Mean Quality | Mean Difference ($G - Target$) | 95% Bootstrap CI | Paired $t$-test $p$-value | Wilcoxon $p$-value | Cohen's $d$ | Bonferroni Significant? |"
+    },
+    {
+      "report_file": "26_final_local_only_scientific_analysis.md",
+      "line_number": 81,
+      "terms": [
+        "significant"
+      ],
+      "line_text": "| Pair Comparison | G Mean Latency | Target Mean Latency | Mean Latency Diff ($G - Target$) | 95% Bootstrap CI (s) | Paired $t$-test $p$-value | Cohen's $d$ | Bonferroni Significant? |"
+    },
+    {
+      "report_file": "26_final_local_only_scientific_analysis.md",
+      "line_number": 94,
+      "terms": [
+        "best"
+      ],
+      "line_text": "| Task Category | Prompts | Best Quality Strat | Best Latency Strat | Best Fixed Model | G Quality | G Latency (s) | G Selection Distribution (Gemma / Qwen / DeepSeek) | G Impact vs Best Fixed |"
+    },
+    {
+      "report_file": "26_final_local_only_scientific_analysis.md",
+      "line_number": 135,
+      "terms": [
+        "best"
+      ],
+      "line_text": "Per-prompt quality regret measures the quality loss incurred by Strategy G compared to the single best model for that prompt:"
+    },
+    {
+      "report_file": "26_final_local_only_scientific_analysis.md",
+      "line_number": 202,
+      "terms": [
+        "significant"
+      ],
+      "line_text": "- **Scientific Audit Finding**: Because $p = 0.0953$, the quality difference between Strategy F and Strategy C is **NOT statistically significant** at $\\alpha = 0.05$."
+    },
+    {
+      "report_file": "26_final_local_only_scientific_analysis.md",
+      "line_number": 204,
+      "terms": [
+        "superior"
+      ],
+      "line_text": "*\"Strategy F achieved statistically indistinguishable quality from DeepSeek R1 (4.57 vs 4.62, p = 0.095) while executing at 36.8% of its latency (24.21s vs 65.78s), demonstrating superior quality-latency efficiency.\"*"
+    },
+    {
+      "report_file": "26_final_local_only_scientific_analysis.md",
+      "line_number": 224,
+      "terms": [
+        "superior"
+      ],
+      "line_text": "**Option D: \"Capability heuristic is superior in this controlled local environment\"**"
+    },
+    {
+      "report_file": "26_final_local_only_scientific_analysis.md",
+      "line_number": 237,
+      "terms": [
+        "significant"
+      ],
+      "line_text": "| **Local Reliability** | **OBSERVED & PRACTICALLY SIGNIFICANT** | 100% Success (791/791) | Local model execution eliminates API rate limits and network failure noise |"
+    },
+    {
+      "report_file": "26_final_local_only_scientific_analysis.md",
+      "line_number": 238,
+      "terms": [
+        "significant"
+      ],
+      "line_text": "| **Qwen Inference Speed** | **STATISTICALLY & PRACTICALLY SIGNIFICANT** | $p < 10^{-15}$, Cohen's $d = 0.888$ | Qwen 2.5 Coder 3B is the optimal model for low-latency coding/database tasks |"
+    },
+    {
+      "report_file": "26_final_local_only_scientific_analysis.md",
+      "line_number": 239,
+      "terms": [
+        "significant"
+      ],
+      "line_text": "| **Heuristic vs Adaptive Quality**| **STATISTICALLY SIGNIFICANT** | $p = 6.29 \\times 10^{-5}$, Cohen's $d = -0.391$ | Category-aware heuristic routing outperforms default weighted scoring in CPU mode |"
+    },
+    {
+      "report_file": "27_complex_task_decomposition_evaluation.md",
+      "line_number": 44,
+      "terms": [
+        "proven"
+      ],
+      "line_text": "- **Model**: `deepseek-r1-7b` (scientifically proven as the highest-quality fixed model from `RUN_2_LOCAL_ONLY_V1`, mean quality **4.62 / 5.0**)."
+    },
+    {
+      "report_file": "27_complex_task_decomposition_evaluation.md",
+      "line_number": 83,
+      "terms": [
+        "equivalent"
+      ],
+      "line_text": "- **Sequential-Equivalent Subtask Latency ($T_{seq}$)**: Sum of all subtask execution durations = **562.14s mean**."
+    },
+    {
+      "report_file": "27_complex_task_decomposition_evaluation.md",
+      "line_number": 107,
+      "terms": [
+        "significant"
+      ],
+      "line_text": "- Quality Score: Single Model **4.45 / 5.0** vs. Orchestrated **4.38 / 5.0** ($p = 0.62$, Not Significant)."
+    },
+    {
+      "report_file": "27_complex_task_decomposition_evaluation.md",
+      "line_number": 112,
+      "terms": [
+        "significant"
+      ],
+      "line_text": "- Quality Score: Single Model **4.34 / 5.0** vs. Orchestrated **4.19 / 5.0** ($p = 0.38$, Not Significant)."
+    },
+    {
+      "report_file": "27_metric_audit_and_correction.md",
+      "line_number": 27,
+      "terms": [
+        "significant"
+      ],
+      "line_text": "- Paired $t$-test: $t = 2.012$, $p = 0.0595$ (Not statistically significant at $\\alpha = 0.05$)"
+    },
+    {
+      "report_file": "27_metric_audit_and_correction.md",
+      "line_number": 31,
+      "terms": [
+        "equivalent"
+      ],
+      "line_text": "- Sequential-Equivalent Subtask Time ($T_{seq}$): **562.14s mean**"
+    },
+    {
+      "report_file": "28_synthesis_optimization_design.md",
+      "line_number": 150,
+      "terms": [
+        "significant"
+      ],
+      "line_text": "Replacing heavyweight synthesis does not yield a significant latency reduction or causes a statistically significant degradation in overall quality or objective coverage ($p < 0.05$)."
+    },
+    {
+      "report_file": "29_synthesis_optimization_results.md",
+      "line_number": 64,
+      "terms": [
+        "best"
+      ],
+      "line_text": "| Metric | $S_0$: Baseline (DeepSeek 7B) | $S_1$: Lightweight (Gemma 4B) | $S_2$: Deterministic Assembly | $S_3$: Hybrid Assembly + Summary | Best Strategy |"
+    },
+    {
+      "report_file": "29_synthesis_optimization_results.md",
+      "line_number": 124,
+      "terms": [
+        "eliminated"
+      ],
+      "line_text": "\u2514\u2500\u2500 Synthesis Stage: 0.0008s (0.0%) \u25c4\u2500\u2500 ELIMINATED (0.00s)"
+    },
+    {
+      "report_file": "29_synthesis_optimization_results.md",
+      "line_number": 162,
+      "terms": [
+        "proven"
+      ],
+      "line_text": "**YES (Empirically Proven)**. Deterministic Structured Assembly ($S_2$) reduced synthesis latency from **147.04s to 0.0008s** (**100.0% synthesis latency reduction**, $p = 7.11 \\times 10^{-13}$, Cohen's $d = -4.47$)."
+    },
+    {
+      "report_file": "29_synthesis_optimization_results.md",
+      "line_number": 165,
+      "terms": [
+        "proven"
+      ],
+      "line_text": "**YES (Empirically Proven)**. $S_2$ preserved **100.0% structural quality** and improved objective coverage from **91.67% to 100.0%** (+8.33% coverage increase, Cohen's $d = +0.43$) by eliminating re-summarization detail omission."
+    }
+  ]
+}
